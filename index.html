@@ -1,0 +1,3432 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jelajah Nusantara — Kondisi Geografis dan Interaksi dengan Bangsa Asing (IPS Kelas VIII)</title>
+  <style>
+    /* RESET & CORE VARIABLES */
+    :root {
+      --primary-navy: #0b1d3a;
+      --secondary-blue: #1e3a8a;
+      --ocean-blue: #0284c7;
+      --light-blue: #e0f2fe;
+      --accent-gold: #d97706;
+      --gold-hover: #b45309;
+      --gold-light: #fef3c7;
+      --cream-bg: #fdfbf7;
+      --card-bg: #ffffff;
+      --text-main: #1e293b;
+      --text-muted: #64748b;
+      --success: #10b981;
+      --danger: #ef4444;
+      --border-color: #e2e8f0;
+      --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
+      --shadow-md: 0 6px 16px rgba(11,29,58,0.08);
+      --shadow-lg: 0 12px 28px rgba(11,29,58,0.14);
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      background-color: var(--cream-bg);
+      color: var(--text-main);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+    }
+
+    /* HEADER & NAVBAR */
+    header {
+      background: linear-gradient(135deg, var(--primary-navy), var(--secondary-blue));
+      color: white;
+      padding: 12px 24px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    }
+
+    .nav-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .brand-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--accent-gold);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 10px rgba(217, 119, 6, 0.4);
+    }
+
+    .brand-text h1 {
+      font-size: 1.15rem;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      color: #fff;
+    }
+
+    .brand-text span {
+      font-size: 0.75rem;
+      color: var(--gold-light);
+      display: block;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .user-pill {
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 6px 14px;
+      border-radius: 30px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    .btn-icon {
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      color: white;
+      height: 38px;
+      border-radius: 20px;
+      padding: 0 12px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      cursor: pointer;
+      transition: var(--transition);
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    .btn-icon.circle {
+      width: 38px;
+      padding: 0;
+      border-radius: 50%;
+    }
+
+    .btn-icon:hover {
+      background: var(--accent-gold);
+      border-color: var(--accent-gold);
+      transform: translateY(-2px);
+    }
+
+    /* GLOBAL PROGRESS BAR */
+    .progress-bar-container {
+      width: 100%;
+      height: 6px;
+      background: rgba(255, 255, 255, 0.2);
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      background: var(--accent-gold);
+      width: 0%;
+      transition: width 0.4s ease;
+    }
+
+    /* MAIN CONTAINER */
+    main {
+      flex: 1;
+      max-width: 1280px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 24px 20px;
+    }
+
+    /* SECTIONS */
+    .view-section {
+      display: none;
+      animation: fadeIn 0.35s ease;
+    }
+
+    .view-section.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* BUTTONS */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 20px;
+      border-radius: var(--radius-md);
+      font-weight: 600;
+      font-size: 0.95rem;
+      border: none;
+      cursor: pointer;
+      transition: var(--transition);
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent-gold), var(--gold-hover));
+      color: white;
+      box-shadow: 0 4px 12px rgba(217, 119, 6, 0.35);
+    }
+
+    .btn-primary:hover {
+      box-shadow: 0 6px 18px rgba(217, 119, 6, 0.5);
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background: var(--light-blue);
+      color: var(--secondary-blue);
+    }
+
+    .btn-secondary:hover {
+      background: #bae6fd;
+      color: var(--primary-navy);
+    }
+
+    .btn-navy {
+      background: var(--primary-navy);
+      color: white;
+    }
+
+    .btn-navy:hover {
+      background: var(--secondary-blue);
+      transform: translateY(-2px);
+    }
+
+    .btn-success {
+      background: #059669;
+      color: white;
+    }
+
+    .btn-success:hover {
+      background: #047857;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(5, 150, 105, 0.3);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 2px solid var(--border-color);
+      color: var(--text-main);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--secondary-blue);
+      color: var(--secondary-blue);
+      background: var(--cream-bg);
+    }
+
+    /* WELCOME SCREEN */
+    .hero-card {
+      background: linear-gradient(145deg, #ffffff, #f7f9fd);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 40px 32px;
+      text-align: center;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 8px;
+      background: linear-gradient(90deg, var(--primary-navy), var(--ocean-blue), var(--accent-gold));
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: var(--light-blue);
+      color: var(--secondary-blue);
+      font-size: 0.85rem;
+      font-weight: 700;
+      padding: 6px 16px;
+      border-radius: 20px;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .hero-title {
+      font-size: 2.2rem;
+      font-weight: 900;
+      color: var(--primary-navy);
+      margin-bottom: 8px;
+      line-height: 1.25;
+    }
+
+    .hero-subtitle {
+      font-size: 1.15rem;
+      color: var(--ocean-blue);
+      font-weight: 600;
+      margin-bottom: 24px;
+    }
+
+    .hero-desc {
+      max-width: 760px;
+      margin: 0 auto 32px auto;
+      color: var(--text-muted);
+      font-size: 1rem;
+    }
+
+    .profile-input-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 12px;
+      max-width: 650px;
+      margin: 0 auto 24px auto;
+      text-align: left;
+    }
+
+    @media (max-width: 640px) {
+      .profile-input-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .input-group label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+      color: var(--primary-navy);
+    }
+
+    .input-field {
+      width: 100%;
+      padding: 12px 16px;
+      border: 2px solid var(--border-color);
+      border-radius: var(--radius-md);
+      font-size: 0.95rem;
+      transition: var(--transition);
+      outline: none;
+      background: #ffffff;
+    }
+
+    .input-field:focus {
+      border-color: var(--ocean-blue);
+      box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15);
+    }
+
+    .avatar-grid {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .avatar-option {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      border: 3px solid transparent;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      cursor: pointer;
+      background: var(--light-blue);
+      transition: var(--transition);
+    }
+
+    .avatar-option.selected {
+      border-color: var(--accent-gold);
+      background: var(--gold-light);
+      transform: scale(1.1);
+      box-shadow: 0 4px 12px rgba(217, 119, 6, 0.3);
+    }
+
+    /* DASHBOARD / MENU UTAMA */
+    .dashboard-header {
+      margin-bottom: 28px;
+    }
+
+    .section-title {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--primary-navy);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 6px;
+    }
+
+    .section-desc {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    .stats-bar {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+
+    .stat-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .stat-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+    }
+
+    .stat-info span {
+      display: block;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .stat-info strong {
+      font-size: 1.3rem;
+      color: var(--primary-navy);
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 20px;
+    }
+
+    .menu-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: var(--transition);
+      cursor: pointer;
+      position: relative;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .menu-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--ocean-blue);
+    }
+
+    .menu-card-top {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .menu-icon {
+      width: 54px;
+      height: 54px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      flex-shrink: 0;
+    }
+
+    .menu-card h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--primary-navy);
+      margin-bottom: 6px;
+    }
+
+    .menu-card p {
+      color: var(--text-muted);
+      font-size: 0.88rem;
+      line-height: 1.5;
+    }
+
+    .menu-status {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 14px;
+      border-top: 1px dashed var(--border-color);
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 4px 10px;
+      border-radius: 12px;
+      font-size: 0.78rem;
+    }
+
+    .status-badge.completed {
+      background: #d1fae5;
+      color: #065f46;
+    }
+
+    .status-badge.in-progress {
+      background: var(--gold-light);
+      color: var(--gold-hover);
+    }
+
+    .status-badge.locked {
+      background: #f1f5f9;
+      color: #64748b;
+    }
+
+    /* PETA PETUALANGAN NUSANTARA */
+    .map-wrapper {
+      background: linear-gradient(180deg, #163660 0%, #0d2342 100%);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      color: white;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      margin-bottom: 24px;
+      overflow: hidden;
+    }
+
+    .map-controls {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+      z-index: 10;
+      position: relative;
+    }
+
+    .map-filter-group {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      color: white;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.82rem;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .filter-btn.active, .filter-btn:hover {
+      background: var(--accent-gold);
+      border-color: var(--accent-gold);
+    }
+
+    .svg-map-container {
+      position: relative;
+      width: 100%;
+      height: 480px;
+      background: radial-gradient(circle at 50% 50%, #1e4578 0%, #0e2445 100%);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .svg-map {
+      width: 100%;
+      height: 100%;
+    }
+
+    .map-pin {
+      cursor: pointer;
+      transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .map-pin:hover {
+      transform: scale(1.35);
+    }
+
+    .pin-pulse {
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { r: 6px; opacity: 0.9; }
+      50% { r: 16px; opacity: 0.2; }
+      100% { r: 6px; opacity: 0.9; }
+    }
+
+    /* CONTENT TABS & CARDS */
+    .card-box {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 24px;
+    }
+
+    .tabs-nav {
+      display: flex;
+      gap: 8px;
+      border-bottom: 2px solid var(--border-color);
+      margin-bottom: 24px;
+      overflow-x: auto;
+      padding-bottom: 2px;
+    }
+
+    .tab-btn {
+      padding: 10px 20px;
+      border: none;
+      background: transparent;
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: var(--transition);
+      border-bottom: 3px solid transparent;
+      white-space: nowrap;
+    }
+
+    .tab-btn.active {
+      color: var(--secondary-blue);
+      border-bottom-color: var(--secondary-blue);
+    }
+
+    .tab-pane {
+      display: none;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .tab-pane.active {
+      display: block;
+    }
+
+    /* FLASHCARD COMPONENT */
+    .flashcard-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+      margin: 20px 0;
+    }
+
+    .flashcard {
+      background: transparent;
+      height: 220px;
+      perspective: 1000px;
+      cursor: pointer;
+    }
+
+    .flashcard-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1);
+      transform-style: preserve-3d;
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-md);
+    }
+
+    .flashcard.flipped .flashcard-inner {
+      transform: rotateY(180deg);
+    }
+
+    .flashcard-front, .flashcard-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+      border-radius: var(--radius-md);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      box-sizing: border-box;
+    }
+
+    .flashcard-front {
+      background: linear-gradient(135deg, var(--card-bg), #f8fafc);
+      border: 2px solid var(--light-blue);
+      color: var(--primary-navy);
+    }
+
+    .flashcard-back {
+      background: linear-gradient(135deg, var(--secondary-blue), var(--primary-navy));
+      color: white;
+      transform: rotateY(180deg);
+      overflow-y: auto;
+    }
+
+    /* SIMULATION COMPONENTS */
+    .sim-container {
+      background: #f8fafc;
+      border: 2px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      margin: 20px 0;
+    }
+
+    .sim-step {
+      display: none;
+    }
+
+    .sim-step.active {
+      display: block;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .sim-options-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin: 16px 0;
+    }
+
+    .sim-choice-card {
+      background: white;
+      border: 2px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      cursor: pointer;
+      transition: var(--transition);
+      text-align: center;
+    }
+
+    .sim-choice-card:hover {
+      border-color: var(--ocean-blue);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .sim-choice-card.selected {
+      border-color: var(--accent-gold);
+      background: var(--gold-light);
+    }
+
+    /* KUIS INTERAKTIF */
+    .quiz-card {
+      background: white;
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      border: 1px solid var(--border-color);
+      box-shadow: var(--shadow-md);
+    }
+
+    .quiz-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .quiz-options {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin: 20px 0;
+    }
+
+    .quiz-option {
+      background: #f8fafc;
+      border: 2px solid var(--border-color);
+      padding: 14px 20px;
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-size: 0.96rem;
+      transition: var(--transition);
+    }
+
+    .quiz-option:hover {
+      background: #f1f5f9;
+      border-color: #cbd5e1;
+    }
+
+    .quiz-option.correct {
+      background: #ecfdf5;
+      border-color: var(--success);
+      color: #065f46;
+      font-weight: 600;
+    }
+
+    .quiz-option.incorrect {
+      background: #fef2f2;
+      border-color: var(--danger);
+      color: #991b1b;
+    }
+
+    .quiz-explanation {
+      background: #eff6ff;
+      border-left: 4px solid var(--ocean-blue);
+      padding: 16px;
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      margin-top: 16px;
+      display: none;
+      font-size: 0.92rem;
+    }
+
+    /* GOOGLE SHEETS SYNC CARD */
+    .sheets-sync-card {
+      background: linear-gradient(135deg, #f0fdf4, #e6f9ed);
+      border: 2px solid #86efac;
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      margin: 24px 0;
+      text-align: left;
+    }
+
+    .sync-status-box {
+      padding: 12px 16px;
+      border-radius: var(--radius-md);
+      margin-top: 14px;
+      font-size: 0.92rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .sync-status-box.ready {
+      background: #e0f2fe;
+      color: #0369a1;
+      border: 1px solid #bae6fd;
+    }
+
+    .sync-status-box.loading {
+      background: #fef3c7;
+      color: #92400e;
+      border: 1px solid #fde68a;
+    }
+
+    .sync-status-box.success {
+      background: #dcfce7;
+      color: #166534;
+      border: 1px solid #bbf7d0;
+      font-weight: 600;
+    }
+
+    .sync-status-box.error {
+      background: #fee2e2;
+      color: #991b1b;
+      border: 1px solid #fecaca;
+    }
+
+    /* MODAL SYSTEM */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(11, 29, 58, 0.7);
+      backdrop-filter: blur(4px);
+      z-index: 2000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .modal-overlay.active {
+      display: flex;
+      animation: fadeIn 0.25s ease;
+    }
+
+    .modal-box {
+      background: white;
+      max-width: 680px;
+      width: 100%;
+      max-height: 85vh;
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      overflow-y: auto;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+      position: relative;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: #f1f5f9;
+      border: none;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      font-size: 1.2rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .code-preview-block {
+      background: #0f172a;
+      color: #e2e8f0;
+      padding: 16px;
+      border-radius: var(--radius-md);
+      font-family: monospace;
+      font-size: 0.85rem;
+      overflow-x: auto;
+      max-height: 220px;
+      margin: 12px 0;
+      white-space: pre;
+    }
+
+    /* BADGES RACK */
+    .badges-rack {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 16px;
+      margin: 20px 0;
+    }
+
+    .badge-card {
+      background: #f8fafc;
+      border: 2px dashed #cbd5e1;
+      border-radius: var(--radius-md);
+      padding: 20px;
+      text-align: center;
+      transition: var(--transition);
+      opacity: 0.5;
+    }
+
+    .badge-card.unlocked {
+      background: white;
+      border: 2px solid var(--accent-gold);
+      box-shadow: 0 4px 14px rgba(217, 119, 6, 0.2);
+      opacity: 1;
+    }
+
+    .badge-card .badge-icon {
+      font-size: 2.5rem;
+      margin-bottom: 8px;
+    }
+
+    /* CERTIFICATE STYLING (PRINT READY) */
+    .certificate-container {
+      background: #fff;
+      border: 12px double var(--accent-gold);
+      padding: 40px;
+      border-radius: var(--radius-lg);
+      text-align: center;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      margin: 24px 0;
+    }
+
+    @media print {
+      body * { visibility: hidden; }
+      .certificate-container, .certificate-container * {
+        visibility: visible;
+      }
+      .certificate-container {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        margin: 0;
+        box-shadow: none;
+      }
+      .no-print { display: none !important; }
+    }
+
+    /* RESPONSIVE DESIGN */
+    @media (max-width: 768px) {
+      .hero-title { font-size: 1.6rem; }
+      .hero-subtitle { font-size: 1rem; }
+      .nav-container { flex-direction: column; align-items: stretch; }
+      .nav-actions { justify-content: space-between; }
+      .stats-bar { grid-template-columns: 1fr; }
+      .svg-map-container { height: 340px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER NAVIGATION -->
+  <header>
+    <div class="nav-container">
+      <div class="brand" onclick="navigateTo('view-dashboard')">
+        <div class="brand-icon">⛵</div>
+        <div class="brand-text">
+          <h1>JELAJAH NUSANTARA</h1>
+          <span>IPS Kelas VIII • Kemdikbud 2021</span>
+        </div>
+      </div>
+
+      <div class="nav-actions">
+        <div class="user-pill" id="userPill">
+          <span id="userAvatar">🧭</span>
+          <span id="userNameDisplay">Siswa Hebat</span>
+          <span id="userClassBadge" style="background: rgba(255,255,255,0.25); padding: 2px 6px; border-radius: 8px; font-size: 0.75rem;">VIII-A</span>
+        </div>
+        <button class="btn-icon" onclick="openModal('modal-sheets-setup')" title="Pengaturan Spreadsheet Guru">📊 Sheets Guru</button>
+        <button class="btn-icon circle" onclick="toggleAudio()" id="audioToggleBtn" title="Suara / Efek Audio">🔊</button>
+        <button class="btn-icon circle" onclick="openModal('modal-help')" title="Petunjuk Penggunaan">ℹ️</button>
+        <button class="btn-icon circle" onclick="navigateTo('view-dashboard')" title="Menu Utama">🏠</button>
+      </div>
+    </div>
+    <div class="progress-bar-container">
+      <div class="progress-bar-fill" id="globalProgressBar"></div>
+    </div>
+  </header>
+
+  <!-- MAIN VIEWPORT -->
+  <main id="appContent">
+
+    <!-- 1. HALAMAN PEMBUKA (WELCOME) -->
+    <section id="view-welcome" class="view-section active">
+      <div class="hero-card">
+        <span class="hero-badge">Media Pembelajaran Interaktif (MPI) IPS SMP</span>
+        <h2 class="hero-title">Jelajah Nusantara</h2>
+        <div class="hero-subtitle">Kondisi Geografis dan Interaksi dengan Bangsa Asing pada Masa Lalu</div>
+        <p class="hero-desc">
+          Selamat datang, penjelajah muda! Telusuri bagaimana lautan menyatukan kepulauan kita, 
+          mengapa rempah Nusantara menjadi incaran saudagar dunia, serta bagaimana perpaduan budaya melahirkan 
+          kerajaan-kerajaan agung Hindu-Buddha di Nusantara. Nilai evaluasimu kini dapat <strong>tersimpan langsung di Google Spreadsheet Guru</strong>!
+        </p>
+
+        <!-- INPUT IDENTITAS SISWA -->
+        <div class="profile-input-grid">
+          <div class="input-group">
+            <label for="studentNameInput">Nama Lengkap Siswa:</label>
+            <input type="text" id="studentNameInput" class="input-field" placeholder="Contoh: Raden Wijaya / Siti Maharani" maxlength="35" value="Raden Wijaya">
+          </div>
+          <div class="input-group">
+            <label for="studentClassInput">Kelas / Rombel:</label>
+            <input type="text" id="studentClassInput" class="input-field" placeholder="VIII-A / VIII-1" maxlength="15" value="VIII-A">
+          </div>
+          <div class="input-group">
+            <label for="studentAbsenInput">No. Presensi / Absen:</label>
+            <input type="text" id="studentAbsenInput" class="input-field" placeholder="Contoh: 12" maxlength="6" value="15">
+          </div>
+        </div>
+
+        <div style="margin-bottom: 12px; font-weight: 700; color: var(--primary-navy); font-size: 0.9rem;">
+          Pilih Karakter Penjelajahmu:
+        </div>
+        <div class="avatar-grid">
+          <div class="avatar-option selected" onclick="selectAvatar('🧭', this)" title="Penjelajah Samudra">🧭</div>
+          <div class="avatar-option" onclick="selectAvatar('⛵', this)" title="Nakhoda Pinisi">⛵</div>
+          <div class="avatar-option" onclick="selectAvatar('📜', this)" title="Cendekiawan Sejarah">📜</div>
+          <div class="avatar-option" onclick="selectAvatar('👑', this)" title="Ksatria Nusantara">👑</div>
+          <div class="avatar-option" onclick="selectAvatar('🏺', this)" title="Pedagang Rempah">🏺</div>
+        </div>
+
+        <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+          <button class="btn btn-primary" onclick="startAdventure()">Mulai Petualangan 🚀</button>
+          <button class="btn btn-outline" onclick="openModal('modal-help')">Petunjuk Penggunaan 📖</button>
+          <button class="btn btn-secondary" onclick="openModal('modal-sheets-setup')">⚙️ Pengaturan Sheets Guru</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. DASHBOARD / MENU UTAMA -->
+    <section id="view-dashboard" class="view-section">
+      <div class="dashboard-header">
+        <div class="section-title">
+          <span>Pusat Kendali Petualangan</span>
+        </div>
+        <p class="section-desc">Pilih modul pembelajaran, eksplorasi peta, selesaikan simulasi dan raih semua lencana prestasimu!</p>
+      </div>
+
+      <!-- STATISTIK PROGRESS -->
+      <div class="stats-bar">
+        <div class="stat-card">
+          <div class="stat-icon" style="background: #e0f2fe; color: #0284c7;">📈</div>
+          <div class="stat-info">
+            <span>Progres Belajar</span>
+            <strong id="statProgress">0%</strong>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon" style="background: #fef3c7; color: #d97706;">🏅</div>
+          <div class="stat-info">
+            <span>Lencana Diperoleh</span>
+            <strong id="statBadges">0 / 5</strong>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon" style="background: #d1fae5; color: #059669;">🎯</div>
+          <div class="stat-info">
+            <span>Nilai Kuis</span>
+            <strong id="statQuizScore">-</strong>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6 MENU UTAMA -->
+      <div class="menu-grid">
+        <!-- 1. Peta Petualangan -->
+        <div class="menu-card" onclick="navigateTo('view-map')">
+          <div>
+            <div class="menu-card-top">
+              <div class="menu-icon" style="background: #e0f2fe; color: #0284c7;">🗺️</div>
+              <div>
+                <h3>Peta Petualangan Nusantara</h3>
+                <p>Eksplorasi titik-titik strategis maritim, pelabuhan purba, dan pusat peradaban kuno di kepulauan Indonesia.</p>
+              </div>
+            </div>
+          </div>
+          <div class="menu-status">
+            <span>8 Titik Eksplorasi</span>
+            <span class="status-badge" id="badge-map-status">Belum Dibuka</span>
+          </div>
+        </div>
+
+        <!-- 2. Materi 1 -->
+        <div class="menu-card" onclick="navigateTo('view-materi1')">
+          <div>
+            <div class="menu-card-top">
+              <div class="menu-icon" style="background: #fef3c7; color: #d97706;">📜</div>
+              <div>
+                <h3>Materi 1: Interaksi Bangsa Asing</h3>
+                <p>Pengaruh posisi silang kepulauan, rahasia angin muson barat-timur, dan beragam bentuk interaksi antarbangsa.</p>
+              </div>
+            </div>
+          </div>
+          <div class="menu-status">
+            <span>3 Sub-materi + Jalur Dagang</span>
+            <span class="status-badge" id="badge-m1-status">Siap Dipelajari</span>
+          </div>
+        </div>
+
+        <!-- 3. Materi 2 -->
+        <div class="menu-card" onclick="navigateTo('view-materi2')">
+          <div>
+            <div class="menu-card-top">
+              <div class="menu-icon" style="background: #e0e7ff; color: #4338ca;">⛵</div>
+              <div>
+                <h3>Materi 2: Perdagangan Awal Masehi</h3>
+                <p>Lahirnya Jalur Rempah Maritim dunia, komoditas emas hijau (cengkih, pala, kapur barus), dan peran syahbandar pelabuhan.</p>
+              </div>
+            </div>
+          </div>
+          <div class="menu-status">
+            <span>Katalog Komoditas & Simulasi</span>
+            <span class="status-badge" id="badge-m2-status">Siap Dipelajari</span>
+          </div>
+        </div>
+
+        <!-- 4. Materi 3 -->
+        <div class="menu-card" onclick="navigateTo('view-materi3')">
+          <div>
+            <div class="menu-card-top">
+              <div class="menu-icon" style="background: #fce7f3; color: #be185d;">🏛️</div>
+              <div>
+                <h3>Materi 3: Kerajaan Hindu-Buddha</h3>
+                <p>5 Teori masuknya pengaruh, 7 kerajaan besar dari Kutai hingga Majapahit, 5 aspek kehidupan, dan analisis peninggalan.</p>
+              </div>
+            </div>
+          </div>
+          <div class="menu-status">
+            <span>7 Kerajaan & Detektif Sejarah</span>
+            <span class="status-badge" id="badge-m3-status">Siap Dipelajari</span>
+          </div>
+        </div>
+
+        <!-- 5. Kuis Interaktif -->
+        <div class="menu-card" onclick="navigateTo('view-quiz')">
+          <div>
+            <div class="menu-card-top">
+              <div class="menu-icon" style="background: #dcfce7; color: #15803d;">✍️</div>
+              <div>
+                <h3>Kuis Interaktif (15 Soal)</h3>
+                <p>Uji pemahaman sebab-akibat, analisis peta relief, studi kasus, dan simpan nilai ke Google Spreadsheet.</p>
+              </div>
+            </div>
+          </div>
+          <div class="menu-status">
+            <span>15 Soal Bergambar</span>
+            <span class="status-badge" id="badge-quiz-status">Belum Dikerjakan</span>
+          </div>
+        </div>
+
+        <!-- 6. Refleksi & Evaluasi -->
+        <div class="menu-card" onclick="navigateTo('view-evaluasi')">
+          <div>
+            <div class="menu-card-top">
+              <div class="menu-icon" style="background: #ffedd5; color: #c2410c;">🎓</div>
+              <div>
+                <h3>Refleksi & Evaluasi Akhir</h3>
+                <p>Sintesis hubungan utuh konsep sejarah, pertanyaan refleksi, rak lencana prestasi, dan cetak sertifikat kelulusan.</p>
+              </div>
+            </div>
+          </div>
+          <div class="menu-status">
+            <span>Refleksi + Sertifikat</span>
+            <span class="status-badge" id="badge-eval-status">Siap Diakses</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. PETA PETUALANGAN NUSANTARA -->
+    <section id="view-map" class="view-section">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+        <div>
+          <button class="btn btn-outline" onclick="navigateTo('view-dashboard')">⬅️ Kembali ke Menu</button>
+        </div>
+        <div style="font-size: 0.9rem; font-weight: 700; color: var(--secondary-blue);">
+          📍 Klik setiap titik untuk menyingkap rahasia sejarahnya!
+        </div>
+      </div>
+
+      <div class="map-wrapper">
+        <div class="map-controls">
+          <div>
+            <h3 style="font-size: 1.2rem; font-weight: 800; color: var(--gold-light);">Peta Interaktif Jalur & Peradaban Nusantara Kuno</h3>
+            <p style="font-size: 0.85rem; color: #cbd5e1;">Menghubungkan jalur pelayaran maritim dunia, sentra rempah, dan pusat kekuasaan.</p>
+          </div>
+          <div class="map-filter-group">
+            <button class="filter-btn active" onclick="filterMapPoints('all', this)">Semua Titik</button>
+            <button class="filter-btn" onclick="filterMapPoints('selat', this)">Selat & Jalur</button>
+            <button class="filter-btn" onclick="filterMapPoints('rempah', this)">Sentra Rempah</button>
+            <button class="filter-btn" onclick="filterMapPoints('kerajaan', this)">Pusat Kerajaan</button>
+          </div>
+        </div>
+
+        <div class="svg-map-container">
+          <svg class="svg-map" viewBox="0 0 1000 500" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="oceanGrad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#163e70"/>
+                <stop offset="100%" stop-color="#0a1d36"/>
+              </linearGradient>
+              <pattern id="waves" width="40" height="20" patternUnits="userSpaceOnUse">
+                <path d="M 0 10 Q 10 0 20 10 T 40 10" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="1.5"/>
+              </pattern>
+            </defs>
+
+            <!-- Ocean Background with gentle waves pattern -->
+            <rect width="1000" height="500" fill="url(#oceanGrad)"/>
+            <rect width="1000" height="500" fill="url(#waves)"/>
+
+            <!-- Wind Monsoon Direction Animation / Toggle Arrows -->
+            <g id="windIndicators" opacity="0.3">
+              <path d="M 150 70 L 350 120" stroke="#fef08a" stroke-width="2" stroke-dasharray="6,6"/>
+              <polygon points="355,121 343,115 346,125" fill="#fef08a"/>
+              <text x="180" y="70" fill="#fef08a" font-size="11" font-weight="bold">Muson Barat (Oktober - April) ➡️</text>
+
+              <path d="M 800 440 L 600 370" stroke="#93c5fd" stroke-width="2" stroke-dasharray="6,6"/>
+              <polygon points="595,368 607,374 604,364" fill="#93c5fd"/>
+              <text x="630" y="440" fill="#93c5fd" font-size="11" font-weight="bold">⬅️ Muson Timur (April - Oktober)</text>
+            </g>
+
+            <!-- Kepulauan Nusantara Polygons -->
+            <!-- Semenanjung Malaya -->
+            <path d="M 80 40 L 140 90 L 170 140 L 195 210 L 180 230 L 150 180 L 110 100 Z" fill="#2d6a4f" stroke="#40916c" stroke-width="2"/>
+            
+            <!-- Sumatra -->
+            <path d="M 110 130 L 180 190 L 250 270 L 320 360 L 300 370 L 220 300 L 140 220 L 90 140 Z" fill="#2d6a4f" stroke="#40916c" stroke-width="2"/>
+            
+            <!-- Jawa & Bali-Lombok-Flores-Timor -->
+            <path d="M 330 380 L 420 380 L 510 390 L 580 395 L 575 415 L 490 410 L 400 405 L 320 395 Z" fill="#2d6a4f" stroke="#40916c" stroke-width="2"/>
+            <path d="M 590 400 L 620 400 L 650 405 L 680 405 L 720 415 L 750 425 L 740 435 L 670 420 L 590 410 Z" fill="#2d6a4f" stroke="#40916c" stroke-width="1.5"/>
+
+            <!-- Kalimantan -->
+            <path d="M 350 200 L 420 180 L 480 210 L 510 270 L 470 330 L 400 335 L 360 290 Z" fill="#2d6a4f" stroke="#40916c" stroke-width="2"/>
+
+            <!-- Sulawesi -->
+            <path d="M 560 210 L 610 215 L 630 250 L 590 280 L 620 330 L 580 340 L 565 290 L 545 250 Z" fill="#2d6a4f" stroke="#40916c" stroke-width="2"/>
+
+            <!-- Kepulauan Maluku (Halmahera, Seram, Banda) -->
+            <path d="M 680 210 L 710 210 L 700 240 L 675 230 Z" fill="#2d6a4f" stroke="#40916c" stroke-width="1.5"/>
+            <path d="M 690 280 L 740 285 L 735 305 L 685 295 Z" fill="#2d6a4f" stroke="#40916c" stroke-width="1.5"/>
+            <circle cx="725" cy="325" r="7" fill="#2d6a4f" stroke="#40916c" stroke-width="1.5"/>
+
+            <!-- Papua -->
+            <path d="M 770 270 L 820 260 L 890 280 L 960 300 L 950 360 L 880 370 L 820 340 L 775 300 Z" fill="#2d6a4f" stroke="#40916c" stroke-width="2"/>
+
+            <!-- Jalur Pelayaran Maritim -->
+            <path d="M 40 90 Q 150 180 270 290 T 380 360 T 500 360 T 680 260 T 730 320" fill="none" stroke="#f59e0b" stroke-width="2.5" stroke-dasharray="8,6" opacity="0.8"/>
+            <path d="M 270 290 Q 420 220 540 120" fill="none" stroke="#38bdf8" stroke-width="2" stroke-dasharray="6,4" opacity="0.7"/>
+
+            <!-- TITIK-TITIK INTERAKTIF POI -->
+            <g class="map-pin" data-type="selat" onclick="showPointDetail(1)">
+              <circle cx="180" cy="200" r="14" fill="#ef4444" opacity="0.3" class="pin-pulse"/>
+              <circle cx="180" cy="200" r="7" fill="#ef4444" stroke="#ffffff" stroke-width="2"/>
+              <text x="180" y="185" fill="#ffffff" font-size="11" font-weight="bold" text-anchor="middle">Selat Malaka</text>
+            </g>
+
+            <g class="map-pin" data-type="rempah" onclick="showPointDetail(2)">
+              <circle cx="130" cy="180" r="14" fill="#f59e0b" opacity="0.3" class="pin-pulse"/>
+              <circle cx="130" cy="180" r="7" fill="#f59e0b" stroke="#ffffff" stroke-width="2"/>
+              <text x="130" y="165" fill="#fef08a" font-size="11" font-weight="bold" text-anchor="middle">Barus (Fansur)</text>
+            </g>
+
+            <g class="map-pin" data-type="kerajaan" onclick="showPointDetail(3)">
+              <circle cx="260" cy="300" r="14" fill="#10b981" opacity="0.3" class="pin-pulse"/>
+              <circle cx="260" cy="300" r="7" fill="#10b981" stroke="#ffffff" stroke-width="2"/>
+              <text x="260" y="325" fill="#6ee7b7" font-size="11" font-weight="bold" text-anchor="middle">Sriwijaya (Palembang)</text>
+            </g>
+
+            <g class="map-pin" data-type="selat" onclick="showPointDetail(4)">
+              <circle cx="315" cy="375" r="14" fill="#ef4444" opacity="0.3" class="pin-pulse"/>
+              <circle cx="315" cy="375" r="7" fill="#ef4444" stroke="#ffffff" stroke-width="2"/>
+              <text x="315" y="360" fill="#ffffff" font-size="11" font-weight="bold" text-anchor="middle">Selat Sunda / Taruma</text>
+            </g>
+
+            <g class="map-pin" data-type="kerajaan" onclick="showPointDetail(5)">
+              <circle cx="480" cy="250" r="14" fill="#10b981" opacity="0.3" class="pin-pulse"/>
+              <circle cx="480" cy="250" r="7" fill="#10b981" stroke="#ffffff" stroke-width="2"/>
+              <text x="480" y="235" fill="#6ee7b7" font-size="11" font-weight="bold" text-anchor="middle">Kutai (Mahakam)</text>
+            </g>
+
+            <g class="map-pin" data-type="kerajaan" onclick="showPointDetail(6)">
+              <circle cx="440" cy="400" r="14" fill="#10b981" opacity="0.3" class="pin-pulse"/>
+              <circle cx="440" cy="400" r="7" fill="#10b981" stroke="#ffffff" stroke-width="2"/>
+              <text x="440" y="425" fill="#6ee7b7" font-size="11" font-weight="bold" text-anchor="middle">Mataram Kuno</text>
+            </g>
+
+            <g class="map-pin" data-type="kerajaan" onclick="showPointDetail(7)">
+              <circle cx="510" cy="405" r="14" fill="#10b981" opacity="0.3" class="pin-pulse"/>
+              <circle cx="510" cy="405" r="7" fill="#10b981" stroke="#ffffff" stroke-width="2"/>
+              <text x="525" y="390" fill="#6ee7b7" font-size="11" font-weight="bold" text-anchor="middle">Majapahit</text>
+            </g>
+
+            <g class="map-pin" data-type="rempah" onclick="showPointDetail(8)">
+              <circle cx="725" cy="315" r="16" fill="#f59e0b" opacity="0.4" class="pin-pulse"/>
+              <circle cx="725" cy="315" r="8" fill="#f59e0b" stroke="#ffffff" stroke-width="2"/>
+              <text x="725" y="345" fill="#fde047" font-size="11" font-weight="bold" text-anchor="middle">Maluku & Banda (Pala/Cengkih)</text>
+            </g>
+          </svg>
+        </div>
+      </div>
+
+      <!-- PANEL DETAIL TITIK EKSPLORASI -->
+      <div id="mapDetailPanel" class="card-box" style="display: none;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 16px;">
+          <div>
+            <span id="pointCategory" class="hero-badge" style="margin-bottom: 8px;">Kategori</span>
+            <h3 id="pointTitle" style="font-size: 1.4rem; color: var(--primary-navy); margin-bottom: 8px;">Judul Titik</h3>
+          </div>
+          <button class="btn btn-outline" style="padding: 6px 12px; font-size: 0.8rem;" onclick="closeMapDetail()">Tutup ✖</button>
+        </div>
+        <p id="pointDesc" style="color: var(--text-main); margin-bottom: 16px; font-size: 0.98rem; line-height: 1.7;"></p>
+        
+        <div style="background: var(--light-blue); padding: 16px; border-radius: var(--radius-md); margin-bottom: 16px;">
+          <strong style="color: var(--secondary-blue); display: block; margin-bottom: 4px;">🔍 Komoditas / Peran Kunci:</strong>
+          <span id="pointCommodity" style="color: var(--text-main); font-size: 0.95rem;">-</span>
+        </div>
+
+        <div style="background: #fffbeb; border: 1px solid #fde68a; padding: 16px; border-radius: var(--radius-md);">
+          <strong style="color: var(--gold-hover); display: block; margin-bottom: 6px;">💡 Pertanyaan Pemantik Berpikir:</strong>
+          <p id="pointPrompt" style="color: #92400e; font-size: 0.92rem; margin-bottom: 8px;"></p>
+          <button class="btn btn-primary" style="padding: 6px 14px; font-size: 0.8rem;" onclick="togglePromptAnswer()">Buka Analisis Guru 📖</button>
+          <div id="pointAnswer" style="display: none; margin-top: 10px; color: #78350f; font-size: 0.9rem; border-top: 1px dashed #fcd34d; padding-top: 8px;"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. MATERI 1: INTERAKSI DENGAN BANGSA ASING -->
+    <section id="view-materi1" class="view-section">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+        <button class="btn btn-outline" onclick="navigateTo('view-dashboard')">⬅️ Kembali ke Menu</button>
+        <span style="font-size: 0.85rem; font-weight: 700; color: var(--accent-gold);">Modul 1 dari 3</span>
+      </div>
+
+      <div class="card-box">
+        <div class="section-title">
+          <span>Materi 1: Interaksi dengan Bangsa Asing pada Masa Lalu</span>
+        </div>
+        <p class="section-desc">Mengkaji bagaimana kondisi alam kepulauan dan iklim mengundang bangsa-bangsa dunia berlayar ke Nusantara.</p>
+
+        <!-- TABS MATERI 1 -->
+        <div class="tabs-nav" style="margin-top: 20px;">
+          <button class="tab-btn active" onclick="switchTab('m1', 'tab-m1-a', this)">A. Kondisi Geografis</button>
+          <button class="tab-btn" onclick="switchTab('m1', 'tab-m1-b', this)">B. Faktor Pendorong</button>
+          <button class="tab-btn" onclick="switchTab('m1', 'tab-m1-c', this)">C. Bentuk Interaksi</button>
+          <button class="tab-btn" onclick="switchTab('m1', 'tab-m1-sim', this)">🎮 Simulasi Jalur</button>
+        </div>
+
+        <!-- TAB A -->
+        <div id="tab-m1-a" class="tab-pane active">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; align-items: center;">
+            <div>
+              <h3 style="color: var(--primary-navy); margin-bottom: 12px;">Nusantara: Negeri Bahari di Persilangan Dunia</h3>
+              <p style="margin-bottom: 12px; text-align: justify;">
+                Indonesia atau <strong>Nusantara</strong> merupakan wilayah kepulauan terbesar di dunia yang terletak strategis di antara dua benua (Asia dan Australia) serta dua samudra besar (Samudra Hindia dan Samudra Pasifik).
+              </p>
+              <ul style="padding-left: 20px; color: var(--text-main); margin-bottom: 16px; line-height: 1.8;">
+                <li><strong>Laut sebagai Penghubung:</strong> Nenek moyang kita tidak memandang laut sebagai pemisah, melainkan sebagai "jalan raya perairan" yang menyatukan ribuan pulau.</li>
+                <li><strong>Iklim Tropis & Keanekaragaman Hayati:</strong> Paparan sinar matahari sepanjang tahun dan curah hujan tinggi menghasilkan flora unik rempah-rempah yang tidak dapat tumbuh di Eropa, Tiongkok, maupun Timur Tengah.</li>
+                <li><strong>Pelaut Tangguh:</strong> Perkembangan perahu bercadik memungkinkan pelayaran antarpulau bahkan menyeberangi samudra lepas hingga ke Madagaskar.</li>
+              </ul>
+            </div>
+            <div style="background: var(--light-blue); padding: 24px; border-radius: var(--radius-md); border: 2px solid #bae6fd;">
+              <h4 style="color: var(--secondary-blue); margin-bottom: 8px;">📌 Konsep Kunci Buku IPS Kelas VIII:</h4>
+              <p style="font-size: 0.92rem; color: #0369a1; line-height: 1.6;">
+                "Kondisi geografis kepulauan dan posisi silang tidak hanya memengaruhi aktivitas ekonomi, tetapi juga membentuk pola interaksi sosial, pertukaran kebudayaan, dan dinamika politik bangsa Indonesia sejak awal Masehi."
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB B -->
+        <div id="tab-m1-b" class="tab-pane">
+          <h3 style="color: var(--primary-navy); margin-bottom: 12px;">Faktor Pendorong Kedatangan Bangsa Asing</h3>
+          <p style="margin-bottom: 16px;">Mengapa para pedagang dari India, Tiongkok, Arab, dan Persia rela mengarungi samudra berbulan-bulan menuju kepulauan Nusantara?</p>
+
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin-bottom: 24px;">
+            <div style="background: #f8fafc; border: 1px solid var(--border-color); padding: 18px; border-radius: var(--radius-md);">
+              <div style="font-size: 1.8rem; margin-bottom: 8px;">🌿</div>
+              <h4 style="color: var(--primary-navy); margin-bottom: 6px;">1. Komoditas Langka</h4>
+              <p style="font-size: 0.88rem; color: var(--text-muted);">Kebutuhan dunia akan rempah (cengkih, pala), kapur barus, dan kayu cendana sebagai obat, pengawet, dan aroma ritual.</p>
+            </div>
+
+            <div style="background: #f8fafc; border: 1px solid var(--border-color); padding: 18px; border-radius: var(--radius-md);">
+              <div style="font-size: 1.8rem; margin-bottom: 8px;">💨</div>
+              <h4 style="color: var(--primary-navy); margin-bottom: 6px;">2. Hukum Angin Muson</h4>
+              <p style="font-size: 0.88rem; color: var(--text-muted);">Pola angin muson barat dan timur yang bertiup secara teratur setiap 6 bulan menjadi tenaga pendorong utama kapal layar kuno.</p>
+            </div>
+
+            <div style="background: #f8fafc; border: 1px solid var(--border-color); padding: 18px; border-radius: var(--radius-md);">
+              <div style="font-size: 1.8rem; margin-bottom: 8px;">⚓</div>
+              <h4 style="color: var(--primary-navy); margin-bottom: 6px;">3. Pelabuhan Transito</h4>
+              <p style="font-size: 0.88rem; color: var(--text-muted);">Letak pelabuhan Nusantara yang aman untuk bersandar mengisi perbekalan air bersih dan bahan pangan saat menunggu pergantian angin.</p>
+            </div>
+          </div>
+
+          <!-- KARTU FLASHCARD KUIS CEPAT -->
+          <h4 style="color: var(--primary-navy); margin-bottom: 8px;">💡 Kartu Cek Pemahaman (Klik untuk Membalik):</h4>
+          <div class="flashcard-grid">
+            <div class="flashcard" onclick="flipCard(this)">
+              <div class="flashcard-inner">
+                <div class="flashcard-front">
+                  <span style="font-size: 2rem; margin-bottom: 8px;">🌬️</span>
+                  <strong>Kapan Angin Muson Barat Bertiup?</strong>
+                  <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 8px;">Klik untuk melihat arah & dampaknya</p>
+                </div>
+                <div class="flashcard-back">
+                  <strong>Oktober — April</strong>
+                  <p style="font-size: 0.85rem; margin-top: 8px;">Bertiup dari Benua Asia ke Benua Australia. Membawa uap air (musim hujan di Nusantara) dan membawa kapal dari India/Tiongkok masuk ke Nusantara.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="flashcard" onclick="flipCard(this)">
+              <div class="flashcard-inner">
+                <div class="flashcard-front">
+                  <span style="font-size: 2rem; margin-bottom: 8px;">☀️</span>
+                  <strong>Kapan Angin Muson Timur Bertiup?</strong>
+                  <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 8px;">Klik untuk melihat arah & dampaknya</p>
+                </div>
+                <div class="flashcard-back">
+                  <strong>April — Oktober</strong>
+                  <p style="font-size: 0.85rem; margin-top: 8px;">Bertiup dari Australia ke Asia. Menandai musim kemarau di Nusantara dan dimanfaatkan pedagang untuk berlayar pulang ke Tiongkok atau India.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB C -->
+        <div id="tab-m1-c" class="tab-pane">
+          <h3 style="color: var(--primary-navy); margin-bottom: 12px;">5 Bentuk Interaksi dengan Bangsa Asing</h3>
+          <p style="margin-bottom: 20px;">Hubungan yang bermula dari transaksi dagang berkembang menjadi interaksi multi-dimensi:</p>
+
+          <div style="display: flex; flex-direction: column; gap: 12px;">
+            <div style="background: white; border: 1px solid var(--border-color); border-left: 5px solid #0284c7; padding: 16px; border-radius: var(--radius-md);">
+              <strong style="color: var(--primary-navy);">1. Interaksi Ekonomi:</strong>
+              <p style="font-size: 0.92rem; color: var(--text-muted); margin-top: 4px;">Aktivitas tukar-menukar barang (barter) maupun jual beli menggunakan mata uang emas, perak, dan manik-manik di bandar pelabuhan.</p>
+            </div>
+
+            <div style="background: white; border: 1px solid var(--border-color); border-left: 5px solid #10b981; padding: 16px; border-radius: var(--radius-md);">
+              <strong style="color: var(--primary-navy);">2. Interaksi Sosial:</strong>
+              <p style="font-size: 0.92rem; color: var(--text-muted); margin-top: 4px;">Terjadinya perkawinan campur antara pedagang asing dengan perempuan bangsawan/penduduk setempat serta lahirnya pemukiman khusus pedagang (kampung pecinan, koja).</p>
+            </div>
+
+            <div style="background: white; border: 1px solid var(--border-color); border-left: 5px solid #d97706; padding: 16px; border-radius: var(--radius-md);">
+              <strong style="color: var(--primary-navy);">3. Interaksi Budaya (Akulturasi):</strong>
+              <p style="font-size: 0.92rem; color: var(--text-muted); margin-top: 4px;">Penyerapan kosakata bahasa Sanskerta, pengenalan aksara Pallawa, kesenian wayang, seni ukir, hingga teknologi pembuatan candi berundak.</p>
+            </div>
+
+            <div style="background: white; border: 1px solid var(--border-color); border-left: 5px solid #8b5cf6; padding: 16px; border-radius: var(--radius-md);">
+              <strong style="color: var(--primary-navy);">4. Interaksi Keagamaan:</strong>
+              <p style="font-size: 0.92rem; color: var(--text-muted); margin-top: 4px;">Penyebaran dan penerimaan ajaran agama Hindu dan Buddha tanpa paksaan senjata, berpadu harmonis dengan kepercayaan lokal pemujaan arwah leluhur.</p>
+            </div>
+
+            <div style="background: white; border: 1px solid var(--border-color); border-left: 5px solid #ec4899; padding: 16px; border-radius: var(--radius-md);">
+              <strong style="color: var(--primary-navy);">5. Interaksi Politik:</strong>
+              <p style="font-size: 0.92rem; color: var(--text-muted); margin-top: 4px;">Perubahan struktur kepemimpinan dari *Primus Inter Pares* (kepala suku) menjadi sistem monarki kerajaan yang dipimpin seorang raja (Dewa-Raja).</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB SIMULASI MINI -->
+        <div id="tab-m1-sim" class="tab-pane">
+          <div class="sim-container">
+            <h3 style="color: var(--primary-navy); margin-bottom: 8px;">🎮 Mini-Aktivitas: Pilih Jalur Perdaganganmu!</h3>
+            <p style="font-size: 0.92rem; color: var(--text-muted); margin-bottom: 16px;">
+              Pilihlah salah satu rute pelayaran kuno berikut untuk melihat komoditas dan bentuk interaksi yang akan kamu temui:
+            </p>
+
+            <div class="sim-options-grid">
+              <div class="sim-choice-card" onclick="runMiniSim(1, this)">
+                <div style="font-size: 2rem; margin-bottom: 6px;">🌊</div>
+                <strong>Jalur Selat Malaka</strong>
+                <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 4px;">Rute tersibuk Asia Barat ke Asia Timur</p>
+              </div>
+
+              <div class="sim-choice-card" onclick="runMiniSim(2, this)">
+                <div style="font-size: 2rem; margin-bottom: 6px;">🌴</div>
+                <strong>Jalur Pantai Barat Sumatra</strong>
+                <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 4px;">Menuju Bandar Barus Samudra Hindia</p>
+              </div>
+
+              <div class="sim-choice-card" onclick="runMiniSim(3, this)">
+                <div style="font-size: 2rem; margin-bottom: 6px;">🏝️</div>
+                <strong>Jalur Rempah Maluku</strong>
+                <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 4px;">Pelayaran kepulauan timur Nusantara</p>
+              </div>
+            </div>
+
+            <div id="miniSimResult" style="display: none; background: white; padding: 20px; border-radius: var(--radius-md); border: 2px solid var(--accent-gold); margin-top: 16px;">
+              <h4 id="simResultTitle" style="color: var(--primary-navy); margin-bottom: 8px;">Hasil Pelayaran</h4>
+              <p id="simResultDesc" style="font-size: 0.95rem; line-height: 1.6;"></p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 5. MATERI 2: PERDAGANGAN NUSANTARA PADA AWAL MASEHI -->
+    <section id="view-materi2" class="view-section">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+        <button class="btn btn-outline" onclick="navigateTo('view-dashboard')">⬅️ Kembali ke Menu</button>
+        <span style="font-size: 0.85rem; font-weight: 700; color: var(--accent-gold);">Modul 2 dari 3</span>
+      </div>
+
+      <div class="card-box">
+        <div class="section-title">
+          <span>Materi 2: Perdagangan Nusantara pada Awal Masehi</span>
+        </div>
+        <p class="section-desc">Eksplorasi rempah berharga, pelabuhan transito kuno, dan mainkan peran sebagai pedagang maritim!</p>
+
+        <!-- TABS MATERI 2 -->
+        <div class="tabs-nav" style="margin-top: 20px;">
+          <button class="tab-btn active" onclick="switchTab('m2', 'tab-m2-a', this)">A. Jalur Sutra Maritim</button>
+          <button class="tab-btn" onclick="switchTab('m2', 'tab-m2-b', this)">B. Katalog Komoditas</button>
+          <button class="tab-btn" onclick="switchTab('m2', 'tab-m2-c', this)">C. Peran Pelabuhan</button>
+          <button class="tab-btn" onclick="switchTab('m2', 'tab-m2-game', this)">🎯 Simulasi Jadi Pedagang</button>
+        </div>
+
+        <!-- TAB A -->
+        <div id="tab-m2-a" class="tab-pane active">
+          <h3 style="color: var(--primary-navy); margin-bottom: 12px;">Peralihan ke Jalur Sutra Maritim Dunia</h3>
+          <p style="margin-bottom: 16px; text-align: justify;">
+            Pada awal Masehi, jalur perdagangan darat Asia Tengah (Jalur Sutra Darat) kerap terganggu oleh konflik peperangan dan perampokan. Akibatnya, para saudagar mengalihkan rute perdagangan melalui <strong>Jalur Laut (Maritime Silk Route)</strong>.
+          </p>
+          <div style="background: #f0fdf4; border: 1px solid #bbf7d0; padding: 18px; border-radius: var(--radius-md); margin-bottom: 16px;">
+            <strong style="color: #166534; display: block; margin-bottom: 6px;">🌍 Rangkaian Jalur Perdagangan Maritim:</strong>
+            <p style="color: #14532d; font-size: 0.92rem;">
+              Eropa / Timur Tengah ➡️ Laut Merah / Teluk Persia ➡️ India (Koreomandel & Malabar) ➡️ <strong>Selat Malaka / Selat Sunda (Nusantara)</strong> ➡️ Laut Cina Selatan ➡️ Tiongkok (Guangzhou/Kanton).
+            </p>
+          </div>
+          <p style="font-size: 0.92rem; color: var(--text-muted);">
+            <em>Catatan Sejarah Kritis:</em> Intensitas hubungan ini berkembang secara bertahap dan tidak merata di seluruh kepulauan. Wilayah pesisir Selat Malaka dan pantai utara Jawa menjadi yang paling awal mengalami kontak intensif.
+          </p>
+        </div>
+
+        <!-- TAB B -->
+        <div id="tab-m2-b" class="tab-pane">
+          <h3 style="color: var(--primary-navy); margin-bottom: 12px;">Katalog Komoditas Niaga (Klik Kartu untuk Eksplorasi)</h3>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px;">
+            <div class="sim-choice-card" onclick="showCommodityDetail('cengkih')">
+              <div style="font-size: 2.2rem; margin-bottom: 8px;">🌱</div>
+              <h4 style="color: var(--primary-navy);">Cengkih</h4>
+              <span style="font-size: 0.8rem; color: var(--accent-gold); font-weight: 700;">Maluku Utara</span>
+              <p style="font-size: 0.82rem; color: var(--text-muted); margin-top: 6px;">Bunga kering aromatik berkhasiat obat dan pengawet.</p>
+            </div>
+
+            <div class="sim-choice-card" onclick="showCommodityDetail('pala')">
+              <div style="font-size: 2.2rem; margin-bottom: 8px;">🌰</div>
+              <h4 style="color: var(--primary-navy);">Pala & Fuli</h4>
+              <span style="font-size: 0.8rem; color: var(--accent-gold); font-weight: 700;">Kepulauan Banda</span>
+              <p style="font-size: 0.82rem; color: var(--text-muted); margin-top: 6px;">Biji dan salut biji merah eksotis bernilai setara emas.</p>
+            </div>
+
+            <div class="sim-choice-card" onclick="showCommodityDetail('kapur')">
+              <div style="font-size: 2.2rem; margin-bottom: 8px;">🪵</div>
+              <h4 style="color: var(--primary-navy);">Kapur Barus & Kemenyan</h4>
+              <span style="font-size: 0.8rem; color: var(--accent-gold); font-weight: 700;">Barus (Sumatra)</span>
+              <p style="font-size: 0.82rem; color: var(--text-muted); margin-top: 6px;">Getah wangi alami yang dicatat hingga naskah Mesir kuno.</p>
+            </div>
+
+            <div class="sim-choice-card" onclick="showCommodityDetail('keramik')">
+              <div style="font-size: 2.2rem; margin-bottom: 8px;">🏺</div>
+              <h4 style="color: var(--primary-navy);">Keramik & Sutra (Impor)</h4>
+              <span style="font-size: 0.8rem; color: #0284c7; font-weight: 700;">Tiongkok & India</span>
+              <p style="font-size: 0.82rem; color: var(--text-muted); margin-top: 6px;">Barang mewah penanda status sosial kaum bangsawan lokal.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB C -->
+        <div id="tab-m2-c" class="tab-pane">
+          <h3 style="color: var(--primary-navy); margin-bottom: 12px;">Peran Strategis Bandar Pelabuhan Kuno</h3>
+          <p style="margin-bottom: 16px;">Pelabuhan bukan sekadar dermaga kapal, melainkan ruang interaksi peradaban yang dinamis:</p>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px;">
+            <div style="background: #f8fafc; padding: 18px; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+              <h4 style="color: var(--secondary-blue); margin-bottom: 6px;">⚓ 1. Tempat Bongkar Muat & Pergudangan</h4>
+              <p style="font-size: 0.88rem; color: var(--text-muted);">Menampung hasil bumi pedalaman (beras, kayu) untuk ditukar dengan komoditas kapal asing dalam pengawasan syahbandar.</p>
+            </div>
+            <div style="background: #f8fafc; padding: 18px; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+              <h4 style="color: var(--secondary-blue); margin-bottom: 6px;">🗣️ 2. Pusat Pertukaran Informasi & Bahasa</h4>
+              <p style="font-size: 0.88rem; color: var(--text-muted);">Bahasa Melayu Kuno berkembang menjadi <em>lingua franca</em> (bahasa pergaulan) yang dipahami oleh pedagang antarbangsa.</p>
+            </div>
+            <div style="background: #f8fafc; padding: 18px; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+              <h4 style="color: var(--secondary-blue); margin-bottom: 6px;">👑 3. Cikal Bakal Pusat Kekuasaan Politik</h4>
+              <p style="font-size: 0.88rem; color: var(--text-muted);">Pajak pelabuhan yang melimpah memperkuat posisi penguasa lokal menjadi raja-raja besar penguasa maritim (seperti Sriwijaya).</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB GAME JADI PEDAGANG -->
+        <div id="tab-m2-game" class="tab-pane">
+          <div class="sim-container" id="merchantGameContainer">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+              <h3 style="color: var(--primary-navy);">🎯 Simulasi Edukatif: "Jadi Pedagang Nusantara"</h3>
+              <span style="font-size: 0.85rem; font-weight: 700; color: var(--accent-gold);">Tahap <span id="gameStepNum">1</span> dari 4</span>
+            </div>
+            <p id="gameStepDesc" style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 18px;">
+              Sebagai saudagar muda dari Pulau Jawa, kamu memiliki armada perahu cadik. Tentukan komoditas yang akan kamu bawa ke pasar internasional:
+            </p>
+
+            <div id="gameStepContent">
+              <!-- Dynamically populated by JS -->
+            </div>
+
+            <div id="gameFeedbackBox" style="display: none; margin-top: 16px; padding: 16px; border-radius: var(--radius-md);"></div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 6. MATERI 3: PERKEMBANGAN KERAJAAN HINDU-BUDDHA -->
+    <section id="view-materi3" class="view-section">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+        <button class="btn btn-outline" onclick="navigateTo('view-dashboard')">⬅️ Kembali ke Menu</button>
+        <span style="font-size: 0.85rem; font-weight: 700; color: var(--accent-gold);">Modul 3 dari 3</span>
+      </div>
+
+      <div class="card-box">
+        <div class="section-title">
+          <span>Materi 3: Kehidupan Masyarakat Masa Kerajaan Hindu-Buddha</span>
+        </div>
+        <p class="section-desc">Menelusuri teori masuknya pengaruh, kejayaan 7 kerajaan legendaris, dan pecahkan teka-teki Detektif Sejarah.</p>
+
+        <!-- TABS MATERI 3 -->
+        <div class="tabs-nav" style="margin-top: 20px;">
+          <button class="tab-btn active" onclick="switchTab('m3', 'tab-m3-teori', this)">A. 5 Teori Masuknya Pengaruh</button>
+          <button class="tab-btn" onclick="switchTab('m3', 'tab-m3-kerajaan', this)">B. 7 Kerajaan Besar</button>
+          <button class="tab-btn" onclick="switchTab('m3', 'tab-m3-aspek', this)">C. 5 Aspek Kehidupan</button>
+          <button class="tab-btn" onclick="switchTab('m3', 'tab-m3-detektif', this)">🕵️ Detektif Sejarah</button>
+        </div>
+
+        <!-- TAB A: TEORI -->
+        <div id="tab-m3-teori" class="tab-pane active">
+          <h3 style="color: var(--primary-navy); margin-bottom: 12px;">Bagaimana Pengaruh Hindu-Buddha Masuk ke Nusantara?</h3>
+          <p style="margin-bottom: 16px; text-align: justify;">
+            Para sejarawan mengemukakan berbagai teori berdasarkan bukti prasasti dan naskah kuno. Yang paling esensial: 
+            <strong>Masyarakat Nusantara bukanlah objek pasif</strong>, melainkan berperan aktif menyeleksi dan mengadopsi kebudayaan luar melalui akulturasi.
+          </p>
+
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px;">
+            <div style="background: #f8fafc; border: 1px solid var(--border-color); padding: 16px; border-radius: var(--radius-md);">
+              <h4 style="color: var(--primary-navy); margin-bottom: 4px;">1. Teori Brahmana</h4>
+              <span style="font-size: 0.8rem; color: var(--accent-gold); font-weight: 700;">Tokoh: J.C. van Leur</span>
+              <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 6px;">Kaum pendeta India diundang oleh para kepala suku Nusantara untuk menobatkan raja dan memimpin upacara keagamaan.</p>
+            </div>
+
+            <div style="background: #f8fafc; border: 1px solid var(--border-color); padding: 16px; border-radius: var(--radius-md);">
+              <h4 style="color: var(--primary-navy); margin-bottom: 4px;">2. Teori Ksatria</h4>
+              <span style="font-size: 0.8rem; color: var(--accent-gold); font-weight: 700;">Tokoh: C.C. Berg, Mookerji</span>
+              <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 6px;">Prajurit/bangsawan India yang kalah perang melarikan diri ke Nusantara dan mendirikan koloni baru.</p>
+            </div>
+
+            <div style="background: #f8fafc; border: 1px solid var(--border-color); padding: 16px; border-radius: var(--radius-md);">
+              <h4 style="color: var(--primary-navy); margin-bottom: 4px;">3. Teori Waisya</h4>
+              <span style="font-size: 0.8rem; color: var(--accent-gold); font-weight: 700;">Tokoh: N.J. Krom</span>
+              <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 6px;">Kaum pedagang India yang berlayar dan menetap di Nusantara menyebarkan budaya melalui perkawinan.</p>
+            </div>
+
+            <div style="background: #f8fafc; border: 1px solid var(--border-color); padding: 16px; border-radius: var(--radius-md);">
+              <h4 style="color: var(--primary-navy); margin-bottom: 4px;">4. Teori Sudra</h4>
+              <span style="font-size: 0.8rem; color: var(--accent-gold); font-weight: 700;">Tokoh: van Faber</span>
+              <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 6px;">Kaum buangan atau kasta buruh terendah yang hijrah ke Nusantara untuk memperbaiki taraf hidup.</p>
+            </div>
+
+            <div style="background: #eff6ff; border: 2px solid var(--ocean-blue); padding: 16px; border-radius: var(--radius-md);">
+              <h4 style="color: var(--secondary-blue); margin-bottom: 4px;">⭐ 5. Teori Arus Balik</h4>
+              <span style="font-size: 0.8rem; color: var(--ocean-blue); font-weight: 700;">Tokoh: F.D.K. Bosch</span>
+              <p style="font-size: 0.85rem; color: #1e3a8a; margin-top: 6px;">Pemuda Nusantara sendiri yang aktif berlayar belajar ke India (Nalanda), lalu pulang menyebarkan ilmu di tanah air.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB B: 7 KERAJAAN BESAR -->
+        <div id="tab-m3-kerajaan" class="tab-pane">
+          <h3 style="color: var(--primary-navy); margin-bottom: 12px;">Kartu Sejarah Interaktif 7 Kerajaan Hindu-Buddha</h3>
+          <p style="margin-bottom: 16px; font-size: 0.92rem; color: var(--text-muted);">Pilih kerajaan untuk meneliti masa kejayaan, raja termasyhur, dan bukti peninggalannya:</p>
+
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px;">
+            <!-- Kutai -->
+            <div class="sim-choice-card" onclick="showKingdomModal('kutai')">
+              <span style="font-size: 1.8rem;">🪨</span>
+              <h4 style="color: var(--primary-navy); margin-top: 4px;">1. Kerajaan Kutai</h4>
+              <span style="font-size: 0.8rem; color: var(--accent-gold); font-weight: 700;">Abad IV M • Muara Kaman, Kaltim</span>
+              <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 6px;">Kerajaan Hindu tertua di Indonesia. Peninggalan 7 tiang batu Yupa dan Raja Mulawarman.</p>
+            </div>
+
+            <!-- Tarumanegara -->
+            <div class="sim-choice-card" onclick="showKingdomModal('taruma')">
+              <span style="font-size: 1.8rem;">👣</span>
+              <h4 style="color: var(--primary-navy); margin-top: 4px;">2. Kerajaan Tarumanegara</h4>
+              <span style="font-size: 0.8rem; color: var(--accent-gold); font-weight: 700;">Abad V M • Jawa Barat</span>
+              <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 6px;">Raja Purnawarman menggali Sungai Gomati 6.122 busur. Prasasti Ciaruteun (tapak kaki dewa).</p>
+            </div>
+
+            <!-- Sriwijaya -->
+            <div class="sim-choice-card" onclick="showKingdomModal('sriwijaya')">
+              <span style="font-size: 1.8rem;">⛵</span>
+              <h4 style="color: var(--primary-navy); margin-top: 4px;">3. Kedatuan Sriwijaya</h4>
+              <span style="font-size: 0.8rem; color: var(--accent-gold); font-weight: 700;">Abad VII-XII M • Sumatra Selatan</span>
+              <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 6px;">Kerajaan maritim terbesar penguasa Selat Malaka & pusat studi agama Buddha terkemuka di Asia.</p>
+            </div>
+
+            <!-- Mataram Kuno -->
+            <div class="sim-choice-card" onclick="showKingdomModal('mataram')">
+              <span style="font-size: 1.8rem;">🛕</span>
+              <h4 style="color: var(--primary-navy); margin-top: 4px;">4. Mataram Kuno (Medang)</h4>
+              <span style="font-size: 0.8rem; color: var(--accent-gold); font-weight: 700;">Abad VIII-X M • Jawa Tengah</span>
+              <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 6px;">Harmoni Dinasti Sanjaya (Hindu) & Syailendra (Buddha). Membangun Borobudur dan Prambanan.</p>
+            </div>
+
+            <!-- Kediri -->
+            <div class="sim-choice-card" onclick="showKingdomModal('kediri')">
+              <span style="font-size: 1.8rem;">📖</span>
+              <h4 style="color: var(--primary-navy); margin-top: 4px;">5. Kerajaan Kediri</h4>
+              <span style="font-size: 0.8rem; color: var(--accent-gold); font-weight: 700;">Abad XI-XII M • Jawa Timur</span>
+              <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 6px;">Puncak karya sastra Jawa Kuno. Raja Jayabaya dan Kitab Bharatayuddha oleh Mpu Sedah & Panuluh.</p>
+            </div>
+
+            <!-- Singhasari -->
+            <div class="sim-choice-card" onclick="showKingdomModal('singhasari')">
+              <span style="font-size: 1.8rem;">⚔️</span>
+              <h4 style="color: var(--primary-navy); margin-top: 4px;">6. Kerajaan Singhasari</h4>
+              <span style="font-size: 0.8rem; color: var(--accent-gold); font-weight: 700;">Abad XIII M • Malang, Jawa Timur</span>
+              <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 6px;">Didirikan Ken Arok. Raja Kertanegara melancarkan Ekspedisi Pamalayu untuk membendung Mongol.</p>
+            </div>
+
+            <!-- Majapahit -->
+            <div class="sim-choice-card" onclick="showKingdomModal('majapahit')">
+              <span style="font-size: 1.8rem;">👑</span>
+              <h4 style="color: var(--primary-navy); margin-top: 4px;">7. Kemaharajaan Majapahit</h4>
+              <span style="font-size: 0.8rem; color: var(--accent-gold); font-weight: 700;">Abad XIII-XVI M • Trowulan, Jatim</span>
+              <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 6px;">Raja Hayam Wuruk & Mahapatih Gajah Mada (Sumpah Palapa). Lahirnya semboyan Bhinneka Tunggal Ika.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB C: 5 ASPEK KEHIDUPAN -->
+        <div id="tab-m3-aspek" class="tab-pane">
+          <h3 style="color: var(--primary-navy); margin-bottom: 12px;">Dinamika Kehidupan Masyarakat Masa Kerajaan</h3>
+          <div style="display: flex; flex-direction: column; gap: 14px;">
+            <div style="background: #f8fafc; padding: 16px; border-radius: var(--radius-md); border-left: 4px solid #0284c7;">
+              <strong style="color: var(--primary-navy);">1. Bidang Politik & Pemerintahan:</strong>
+              <p style="font-size: 0.92rem; color: var(--text-muted); margin-top: 4px;">Sistem kepemimpinan beralih ke monarki turun-temurun. Raja dipandang sebagai titisan dewa di bumi (konsep <em>Dewa-Raja</em>), diperkuat oleh birokrasi pejabat kerajaan.</p>
+            </div>
+            <div style="background: #f8fafc; padding: 16px; border-radius: var(--radius-md); border-left: 4px solid #10b981;">
+              <strong style="color: var(--primary-navy);">2. Bidang Ekonomi:</strong>
+              <p style="font-size: 0.92rem; color: var(--text-muted); margin-top: 4px;">Berkembangnya perpaduan ekonomi agraris (irigasi sawah teratur di Jawa pedalaman) dan ekonomi maritim (penguasaan pelabuhan dagang transito di pesisir Sumatra dan Jawa).</p>
+            </div>
+            <div style="background: #f8fafc; padding: 16px; border-radius: var(--radius-md); border-left: 4px solid #f59e0b;">
+              <strong style="color: var(--primary-navy);">3. Bidang Sosial:</strong>
+              <p style="font-size: 0.92rem; color: var(--text-muted); margin-top: 4px;">Mengenal pembagian kasta (Brahmana, Ksatria, Waisya, Sudra), namun penerapannya di Nusantara bersifat luwes dan tidak sekaku sistem kasta di India.</p>
+            </div>
+            <div style="background: #f8fafc; padding: 16px; border-radius: var(--radius-md); border-left: 4px solid #8b5cf6;">
+              <strong style="color: var(--primary-navy);">4. Bidang Budaya:</strong>
+              <p style="font-size: 0.92rem; color: var(--text-muted); margin-top: 4px;">Seni bangunan candi memadukan punden berundak asli Indonesia dengan relief dan stupa Hindu-Buddha. Lahir karya sastra bermutu tinggi berbahasa Jawa Kuno.</p>
+            </div>
+            <div style="background: #f8fafc; padding: 16px; border-radius: var(--radius-md); border-left: 4px solid #ec4899;">
+              <strong style="color: var(--primary-navy);">5. Bidang Agama & Pendidikan:</strong>
+              <p style="font-size: 0.92rem; color: var(--text-muted); margin-top: 4px;">Lembaga asrama atau mandala tempat pemuda mendalami ilmu agama, filsafat, dan tata hukum bersama para pendeta guru.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB DETEKTIF SEJARAH -->
+        <div id="tab-m3-detektif" class="tab-pane">
+          <div class="sim-container">
+            <h3 style="color: var(--primary-navy); margin-bottom: 8px;">🕵️ Mini-Aktivitas: Detektif Sejarah</h3>
+            <p style="font-size: 0.92rem; color: var(--text-muted); margin-bottom: 16px;">
+              Pilihlah salah satu kasus artefak di bawah ini, telaah faktanya, dan simpulkan apa yang berhasil diungkap oleh sejarawan:
+            </p>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px;">
+              <div class="sim-choice-card" onclick="solveDetectiveCase(1)">
+                <div style="font-size: 2rem;">🌊</div>
+                <strong>Kasus 1: Sungai Gomati</strong>
+                <p style="font-size: 0.8rem; color: var(--text-muted);">Prasasti Tugu Tarumanegara</p>
+              </div>
+
+              <div class="sim-choice-card" onclick="solveDetectiveCase(2)">
+                <div style="font-size: 2rem;">⛵</div>
+                <strong>Kasus 2: Relief Perahu Bercadik</strong>
+                <p style="font-size: 0.8rem; color: var(--text-muted);">Dinding Candi Borobudur</p>
+              </div>
+
+              <div class="sim-choice-card" onclick="solveDetectiveCase(3)">
+                <div style="font-size: 2rem;">🐮</div>
+                <strong>Kasus 3: Hadiah 20.000 Sapi</strong>
+                <p style="font-size: 0.8rem; color: var(--text-muted);">Prasasti Yupa Kutai</p>
+              </div>
+            </div>
+
+            <div id="detectiveResultBox" style="display: none; background: white; padding: 20px; border-radius: var(--radius-md); border: 2px solid var(--ocean-blue); margin-top: 16px;">
+              <h4 id="detCaseTitle" style="color: var(--primary-navy); margin-bottom: 8px;">Hasil Investigasi</h4>
+              <p id="detCaseDesc" style="font-size: 0.95rem; line-height: 1.6;"></p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 7. KUIS INTERAKTIF 15 SOAL -->
+    <section id="view-quiz" class="view-section">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+        <button class="btn btn-outline" onclick="navigateTo('view-dashboard')">⬅️ Kembali ke Menu</button>
+        <span style="font-size: 0.9rem; font-weight: 700; color: var(--primary-navy);" id="quizProgressText">Soal 1 dari 15</span>
+      </div>
+
+      <div class="quiz-card" id="quizContainer">
+        <div class="quiz-header">
+          <div>
+            <span class="hero-badge" id="quizCategoryBadge" style="margin-bottom: 4px;">Materi 1: Kondisi Geografis</span>
+            <h3 id="quizQuestionText" style="font-size: 1.15rem; color: var(--primary-navy); line-height: 1.5;">Pertanyaan Kuis...</h3>
+          </div>
+        </div>
+
+        <div class="quiz-options" id="quizOptionsContainer">
+          <!-- Populated by JS -->
+        </div>
+
+        <div class="quiz-explanation" id="quizExplanationBox">
+          <strong style="display: block; margin-bottom: 4px; color: var(--secondary-blue);">💡 Pembahasan Edukatif:</strong>
+          <span id="quizExplanationText">Penjelasan jawaban...</span>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--border-color);">
+          <button class="btn btn-outline" id="btnPrevQuestion" onclick="prevQuizQuestion()" style="visibility: hidden;">⬅️ Sebelumnya</button>
+          <button class="btn btn-primary" id="btnNextQuestion" onclick="nextQuizQuestion()" disabled>Lanjut ➡️</button>
+        </div>
+      </div>
+
+      <!-- HASIL KUIS SCREEN -->
+      <div class="quiz-card" id="quizResultScreen" style="display: none; text-align: center;">
+        <span class="hero-badge">Hasil Evaluasi Belajar</span>
+        <h2 style="font-size: 2rem; color: var(--primary-navy); margin: 12px 0;">Nilai Akhir Kamu: <span id="finalScoreVal" style="color: var(--accent-gold);">0</span></h2>
+        <p id="scoreFeedbackText" style="color: var(--text-muted); font-size: 1.05rem; margin-bottom: 24px;"></p>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 24px; text-align: left;">
+          <div style="background: #f8fafc; padding: 16px; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+            <span style="font-size: 0.8rem; color: var(--text-muted); font-weight: 700;">JAWABAN BENAR</span>
+            <h4 id="resCorrectCount" style="font-size: 1.4rem; color: var(--success);">-</h4>
+          </div>
+          <div style="background: #f8fafc; padding: 16px; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+            <span style="font-size: 0.8rem; color: var(--text-muted); font-weight: 700;">JAWABAN SALAH</span>
+            <h4 id="resWrongCount" style="font-size: 1.4rem; color: var(--danger);">-</h4>
+          </div>
+          <div style="background: #f8fafc; padding: 16px; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+            <span style="font-size: 0.8rem; color: var(--text-muted); font-weight: 700;">PREDIKAT</span>
+            <h4 id="resGradeVal" style="font-size: 1.4rem; color: var(--secondary-blue);">-</h4>
+          </div>
+        </div>
+
+        <!-- GOOGLE SHEETS SYNC SECTION -->
+        <div class="sheets-sync-card">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; flex-wrap: wrap;">
+            <div>
+              <h3 style="color: #166534; font-size: 1.15rem; display: flex; align-items: center; gap: 8px;">
+                <span>📊 Simpan Nilai ke Google Spreadsheet Guru</span>
+              </h3>
+              <p style="font-size: 0.88rem; color: #14532d; margin-top: 4px;">
+                Kirim data nilai secara otomatis ke lembar rekapitulasi Google Spreadsheet di Google Drive guru.
+              </p>
+            </div>
+            <button class="btn btn-outline" style="padding: 6px 14px; font-size: 0.82rem; background: white;" onclick="openModal('modal-sheets-setup')">
+              ⚙️ Atur URL Spreadsheet
+            </button>
+          </div>
+
+          <div style="display: flex; gap: 10px; margin-top: 16px; flex-wrap: wrap;">
+            <button class="btn btn-success" id="btnSendToSheets" onclick="sendScoreToGoogleSheets()">
+              🚀 Kirim Nilai ke Google Sheets
+            </button>
+            <button class="btn btn-secondary" onclick="copyScoreRowToClipboard()">
+              📋 Salin Format Baris (Clipboard)
+            </button>
+            <button class="btn btn-outline" style="background: white;" onclick="downloadScoreCSV()">
+              📥 Unduh CSV Nilai
+            </button>
+          </div>
+
+          <!-- Status Indicator -->
+          <div class="sync-status-box ready" id="syncStatusBox">
+            <span id="syncStatusIcon">ℹ️</span>
+            <span id="syncStatusText">Klik tombol "Kirim Nilai ke Google Sheets" untuk mengirimkan rekapan nilai kamu ke spreadsheet guru.</span>
+          </div>
+        </div>
+
+        <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 16px;">
+          <button class="btn btn-primary" onclick="restartQuiz()">Ulangi Kuis 🔄</button>
+          <button class="btn btn-navy" onclick="navigateTo('view-evaluasi')">Lihat Refleksi & Sertifikat 🎓</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. REFLEKSI DAN EVALUASI AKHIR -->
+    <section id="view-evaluasi" class="view-section">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+        <button class="btn btn-outline" onclick="navigateTo('view-dashboard')">⬅️ Kembali ke Menu</button>
+        <span style="font-size: 0.85rem; font-weight: 700; color: var(--accent-gold);">Evaluasi & Penutup</span>
+      </div>
+
+      <!-- SINTESIS HUBUNGAN SEBAB-AKIBAT -->
+      <div class="card-box">
+        <div class="section-title">
+          <span>Sintesis Hubungan Konseptual Sejarah Nusantara</span>
+        </div>
+        <p class="section-desc">Pahami benang merah keterhubungan antara alam maritim dengan lahirnya peradaban bangsa:</p>
+
+        <div style="display: flex; flex-direction: column; gap: 12px; margin: 20px 0;">
+          <div style="display: flex; align-items: center; gap: 16px; background: #f8fafc; padding: 14px; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+            <div style="background: var(--ocean-blue); color: white; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; flex-shrink: 0;">1</div>
+            <div>
+              <strong style="color: var(--primary-navy);">Letak Geografis Kepulauan & Rempah Unik</strong>
+              <p style="font-size: 0.88rem; color: var(--text-muted);">Posisi silang dunia dan iklim tropis melahirkan kekayaan cengkih, pala, dan kapur barus yang sangat dicari dunia.</p>
+            </div>
+          </div>
+
+          <div style="text-align: center; color: var(--accent-gold); font-size: 1.2rem;">⬇️ MENDORONG ⬇️</div>
+
+          <div style="display: flex; align-items: center; gap: 16px; background: #f8fafc; padding: 14px; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+            <div style="background: var(--ocean-blue); color: white; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; flex-shrink: 0;">2</div>
+            <div>
+              <strong style="color: var(--primary-navy);">Perdagangan Maritim & Pemanfaatan Angin Muson</strong>
+              <p style="font-size: 0.88rem; color: var(--text-muted);">Pedagang India, Tiongkok, dan Arab berlayar ke Nusantara mengikuti ritme Muson Barat dan Muson Timur.</p>
+            </div>
+          </div>
+
+          <div style="text-align: center; color: var(--accent-gold); font-size: 1.2rem;">⬇️ MENIMBULKAN ⬇️</div>
+
+          <div style="display: flex; align-items: center; gap: 16px; background: #f8fafc; padding: 14px; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+            <div style="background: var(--ocean-blue); color: white; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; flex-shrink: 0;">3</div>
+            <div>
+              <strong style="color: var(--primary-navy);">Interaksi Sosial Budaya & Akulturasi Aktif</strong>
+              <p style="font-size: 0.88rem; color: var(--text-muted);">Pertemuan berbulan-bulan di pelabuhan memicu perkawinan, penyerapan aksara, bahasa Sanskerta, serta nilai-nilai Hindu-Buddha.</p>
+            </div>
+          </div>
+
+          <div style="text-align: center; color: var(--accent-gold); font-size: 1.2rem;">⬇️ MELAHIRKAN ⬇️</div>
+
+          <div style="display: flex; align-items: center; gap: 16px; background: #f8fafc; padding: 14px; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+            <div style="background: var(--ocean-blue); color: white; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; flex-shrink: 0;">4</div>
+            <div>
+              <strong style="color: var(--primary-navy);">Kelahiran Kerajaan-Kerajaan Berdaulat Nusantara</strong>
+              <p style="font-size: 0.88rem; color: var(--text-muted);">Pemimpin suku menjelma menjadi raja-raja besar penguasa maritim dan agraris dari Kutai hingga Sriwijaya dan Majapahit.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PERTANYAAN REFLEKSI DIRI -->
+      <div class="card-box">
+        <h3 style="color: var(--primary-navy); margin-bottom: 12px;">Pertanyaan Refleksi Diri Siswa</h3>
+        <p style="font-size: 0.92rem; color: var(--text-muted); margin-bottom: 20px;">Tuliskan pandangan pribadimu sebagai generasi penerus bangsa yang bijak:</p>
+
+        <div style="display: flex; flex-direction: column; gap: 18px;">
+          <div>
+            <label style="font-weight: 700; color: var(--secondary-blue); font-size: 0.92rem; display: block; margin-bottom: 6px;">
+              1. Pengetahuan baru apa yang paling membuka wawasanmu tentang kehebatan nenek moyang bangsa Indonesia?
+            </label>
+            <textarea class="input-field" rows="2" placeholder="Tuliskan refleksimu di sini..." id="ref1"></textarea>
+          </div>
+
+          <div>
+            <label style="font-weight: 700; color: var(--secondary-blue); font-size: 0.92rem; display: block; margin-bottom: 6px;">
+              2. Bagaimana perdagangan masa lalu membuktikan bahwa bangsa kita terbuka namun tetap berdaulat atas jati dirinya?
+            </label>
+            <textarea class="input-field" rows="2" placeholder="Tuliskan refleksimu di sini..." id="ref2"></textarea>
+          </div>
+
+          <div>
+            <label style="font-weight: 700; color: var(--secondary-blue); font-size: 0.92rem; display: block; margin-bottom: 6px;">
+              3. Mengapa candi, prasasti, dan naskah kuno wajib kita rawat bersama dari kepunahan?
+            </label>
+            <textarea class="input-field" rows="2" placeholder="Tuliskan refleksimu di sini..." id="ref3"></textarea>
+          </div>
+
+          <div>
+            <label style="font-weight: 700; color: var(--secondary-blue); font-size: 0.92rem; display: block; margin-bottom: 6px;">
+              4. Bagaimana kamu menerapkan sikap toleransi budaya di sekolah masa kini berakar dari kearifan Bhinneka Tunggal Ika?
+            </label>
+            <textarea class="input-field" rows="2" placeholder="Tuliskan refleksimu di sini..." id="ref4"></textarea>
+          </div>
+
+          <div style="display: flex; gap: 12px; align-items: center; flex-wrap: wrap;">
+            <button class="btn btn-primary" onclick="saveReflection()">Simpan Refleksi 💾</button>
+            <button class="btn btn-success" onclick="sendScoreToGoogleSheets()">📊 Sinkronkan Nilai & Refleksi ke Sheets Guru</button>
+            <span id="saveRefAlert" style="margin-left: 12px; color: var(--success); font-weight: 600; display: none;">✅ Refleksi berhasil disimpan!</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- RAK LENCANA PRESTASI -->
+      <div class="card-box">
+        <h3 style="color: var(--primary-navy); margin-bottom: 6px;">Rak Lencana Prestasi Belajar</h3>
+        <p style="font-size: 0.92rem; color: var(--text-muted); margin-bottom: 16px;">Kumpulkan seluruh 5 lencana penjelajah untuk meraih predikat Paripurna:</p>
+        
+        <div class="badges-rack">
+          <div class="badge-card" id="badgeCard1">
+            <div class="badge-icon">🧭</div>
+            <strong style="color: var(--primary-navy); display: block;">Penjelajah Peta</strong>
+            <span style="font-size: 0.78rem; color: var(--text-muted);">Buka semua titik di peta</span>
+          </div>
+
+          <div class="badge-card" id="badgeCard2">
+            <div class="badge-icon">🌊</div>
+            <strong style="color: var(--primary-navy); display: block;">Nakhoda Muson</strong>
+            <span style="font-size: 0.78rem; color: var(--text-muted);">Selesaikan simulasi jalur</span>
+          </div>
+
+          <div class="badge-card" id="badgeCard3">
+            <div class="badge-icon">⚖️</div>
+            <strong style="color: var(--primary-navy); display: block;">Pedagang Cerdas</strong>
+            <span style="font-size: 0.78rem; color: var(--text-muted);">Sukses niaga rempah Masehi</span>
+          </div>
+
+          <div class="badge-card" id="badgeCard4">
+            <div class="badge-icon">🔍</div>
+            <strong style="color: var(--primary-navy); display: block;">Detektif Sejarah</strong>
+            <span style="font-size: 0.78rem; color: var(--text-muted);">Pecahkan teka-teki artefak</span>
+          </div>
+
+          <div class="badge-card" id="badgeCard5">
+            <div class="badge-icon">👑</div>
+            <strong style="color: var(--primary-navy); display: block;">Cendekiawan Utama</strong>
+            <span style="font-size: 0.78rem; color: var(--text-muted);">Skor kuis minimal 80</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- SERTIFIKAT KELULUSAN RESMI -->
+      <div class="certificate-container" id="certArea">
+        <div style="font-size: 0.9rem; letter-spacing: 2px; text-transform: uppercase; color: var(--accent-gold); font-weight: 800; margin-bottom: 8px;">
+          SERTIFIKAT PENCAPAIAN PEMBELAJARAN
+        </div>
+        <h2 style="font-size: 1.8rem; color: var(--primary-navy); margin-bottom: 4px;">JELAJAH NUSANTARA</h2>
+        <div style="font-size: 1rem; color: var(--secondary-blue); font-weight: 600; margin-bottom: 20px;">
+          Kondisi Geografis dan Interaksi dengan Bangsa Asing
+        </div>
+
+        <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 8px;">Diberikan dengan bangga kepada:</p>
+        <h3 id="certStudentName" style="font-size: 1.8rem; color: var(--primary-navy); text-decoration: underline; margin-bottom: 4px;">Raden Wijaya</h3>
+        <div id="certStudentDetails" style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 16px;">Kelas: VIII-A • Presensi: 15</div>
+        
+        <p style="max-width: 650px; margin: 0 auto 24px auto; font-size: 0.95rem; line-height: 1.6;">
+          Telah berhasil menyelesaikan rangkaian penjelajahan interaktif Ilmu Pengetahuan Sosial (IPS) Kelas VIII SMP 
+          dengan menguasai konsep pengaruh letak geografis maritim, jalur rempah awal Masehi, dan dinamika kebudayaan kerajaan Hindu-Buddha.
+        </p>
+
+        <div style="display: flex; justify-content: center; gap: 40px; margin-bottom: 24px;">
+          <div>
+            <span style="font-size: 0.8rem; color: var(--text-muted); display: block;">NILAI EVALUASI</span>
+            <strong id="certScore" style="font-size: 1.4rem; color: var(--accent-gold);">-</strong>
+          </div>
+          <div>
+            <span style="font-size: 0.8rem; color: var(--text-muted); display: block;">TANGGAL PENYELESAIAN</span>
+            <strong id="certDate" style="font-size: 1.1rem; color: var(--primary-navy);">13 Oktober 2026</strong>
+          </div>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; align-items: flex-end; max-width: 600px; margin: 0 auto; border-top: 1px solid var(--border-color); padding-top: 20px;">
+          <div style="text-align: center;">
+            <div style="font-family: cursive; font-size: 1.3rem; color: var(--secondary-blue);">Media Pembelajaran IPS</div>
+            <span style="font-size: 0.8rem; color: var(--text-muted); display: block; border-top: 1px solid #94a3b8; width: 140px; margin-top: 4px;">Antigravity Kemdikbud</span>
+          </div>
+          <div style="width: 70px; height: 70px; border-radius: 50%; border: 3px double var(--accent-gold); display: flex; align-items: center; justify-content: center; font-size: 1.8rem;">
+            ⚜️
+          </div>
+          <div style="text-align: center;">
+            <div style="font-family: cursive; font-size: 1.3rem; color: var(--secondary-blue);">Guru Pengampu IPS</div>
+            <span style="font-size: 0.8rem; color: var(--text-muted); display: block; border-top: 1px solid #94a3b8; width: 140px; margin-top: 4px;">Tanda Tangan Guru</span>
+          </div>
+        </div>
+      </div>
+
+      <div style="text-align: center; margin-bottom: 32px;" class="no-print">
+        <button class="btn btn-primary" onclick="window.print()">🖨️ Cetak / Simpan PDF Sertifikat</button>
+      </div>
+
+      <!-- DAFTAR PUSTAKA RESMI -->
+      <div class="card-box">
+        <h4 style="color: var(--primary-navy); margin-bottom: 12px;">📚 Daftar Pustaka & Sumber Rujukan Resmi</h4>
+        <ul style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.8; padding-left: 20px;">
+          <li><strong>Buku Sumber Utama:</strong> Supardi, Mohammad Rizky Satria, Sari Oktafiana, M. Nursa’ban. (2021). <em>Buku Panduan Siswa Ilmu Pengetahuan Sosial untuk SMP Kelas VIII</em>. Pusat Kurikulum dan Perbukuan, Badan Standar, Kurikulum, dan Asesmen Pendidikan, Kemendikbudristek RI, Jakarta.</li>
+          <li>Poesponegoro, M.D. & Notosusanto, N. (2019). <em>Sejarah Nasional Indonesia Jilid II: Zaman Kuno</em>. Balai Pustaka, Jakarta.</li>
+          <li>Wolters, O.W. (2011). <em>Kemaharajaan Sriwijaya dan Perniagaan Dunia Abad Ke-3 hingga Ke-7</em>. Komunitas Bambu, Depok.</li>
+          <li>Reid, Anthony. (2014). <em>Asia Tenggara dalam Kurun Niaga 1450–1680 Jilid 2: Jaringan Perdagangan Global</em>. Yayasan Pustaka Obor Indonesia, Jakarta.</li>
+        </ul>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- MODAL BANTUAN / PETUNJUK -->
+  <div class="modal-overlay" id="modal-help">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeModal('modal-help')">✖</button>
+      <h3 style="color: var(--primary-navy); margin-bottom: 12px;">📖 Petunjuk Penggunaan Media</h3>
+      <p style="margin-bottom: 16px; font-size: 0.95rem;">Selamat datang di media pembelajaran interaktif Jelajah Nusantara! Berikut panduan singkat penggunaannya:</p>
+      
+      <ol style="padding-left: 20px; line-height: 1.8; font-size: 0.92rem; color: var(--text-main); margin-bottom: 20px;">
+        <li><strong>Profil Siswa:</strong> Masukkan Nama, Kelas, dan No. Presensi di halaman pembuka agar sertifikat dan spreadsheet terdata rapi.</li>
+        <li><strong>Peta Interaktif:</strong> Klik penanda merah, emas, dan hijau di peta Nusantara untuk mengungkap sejarah selat, sentra rempah, dan kerajaan kuno.</li>
+        <li><strong>Modul Materi:</strong> Jelajahi 3 modul materi utama yang dilengkapi gambar, simulasi jalur dagang, dan permainan peran.</li>
+        <li><strong>Simulasi & Detektif Sejarah:</strong> Pecahkan tantangan pilihan rute dagang dan analisis bukti peninggalan purba.</li>
+        <li><strong>Kuis Interaktif 15 Soal:</strong> Jawab seluruh soal. Nilai langsung dihitung otomatis dan dapat dikirim ke <strong>Google Spreadsheet Guru</strong>.</li>
+        <li><strong>Refleksi & Sertifikat:</strong> Tuliskan refleksimu, raih 5 lencana prestasi, dan cetak sertifikat kelulusan digitalmu.</li>
+      </ol>
+
+      <button class="btn btn-primary" style="width: 100%;" onclick="closeModal('modal-help')">Saya Mengerti, Ayo Mulai! 👍</button>
+    </div>
+  </div>
+
+  <!-- MODAL GOOGLE SHEETS SETUP (PANDUAN GURU) -->
+  <div class="modal-overlay" id="modal-sheets-setup">
+    <div class="modal-box" style="max-width: 720px;">
+      <button class="modal-close" onclick="closeModal('modal-sheets-setup')">✖</button>
+      <span class="hero-badge" style="margin-bottom: 6px;">Integrasi Google Drive</span>
+      <h3 style="color: var(--primary-navy); margin-bottom: 8px;">⚙️ Panduan Pengaturan Google Sheets Guru</h3>
+      <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 16px;">
+        Media ini dapat mengirimkan nilai, nama siswa, kelas, no. absen, predikat, dan jawaban refleksi secara langsung ke Google Spreadsheet di Google Drive Anda.
+      </p>
+
+      <div style="background: #f8fafc; border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 16px; margin-bottom: 16px;">
+        <label for="inputSheetsScriptUrl" style="font-weight: 700; color: var(--secondary-blue); font-size: 0.9rem; display: block; margin-bottom: 6px;">
+          🔗 Web App URL Google Apps Script Anda:
+        </label>
+        <input type="url" id="inputSheetsScriptUrl" class="input-field" placeholder="https://script.google.com/macros/s/AKfycb.../exec" style="margin-bottom: 10px;">
+        <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+          <button class="btn btn-success" style="padding: 8px 16px; font-size: 0.88rem;" onclick="saveSheetsScriptUrl()">Simpan URL Web App 💾</button>
+          <button class="btn btn-secondary" style="padding: 8px 16px; font-size: 0.88rem;" onclick="testSheetsConnection()">Uji Koneksi 📡</button>
+          <button class="btn btn-outline" style="padding: 8px 16px; font-size: 0.88rem;" onclick="resetDefaultSheetsUrl()">Gunakan URL Bawaan 🔄</button>
+        </div>
+        <div id="testUrlResultBox" style="display: none; margin-top: 10px; font-size: 0.88rem; padding: 8px 12px; border-radius: 6px;"></div>
+      </div>
+
+      <div style="background: #eff6ff; border-left: 4px solid var(--secondary-blue); padding: 16px; border-radius: 0 var(--radius-md) var(--radius-md) 0; margin-bottom: 16px;">
+        <strong style="color: var(--secondary-blue); display: block; margin-bottom: 8px;">📋 Cara Menyiapkan Spreadsheet Baru (Hanya 3 Menit):</strong>
+        <ol style="padding-left: 20px; font-size: 0.86rem; line-height: 1.7; color: var(--text-main);">
+          <li>Buka <a href="https://drive.google.com" target="_blank" style="color: var(--ocean-blue); font-weight: bold;">Google Drive</a> dan buat <strong>Google Spreadsheet baru</strong> (beri nama misal: <em>Nilai IPS Kelas VIII</em>).</li>
+          <li>Di menu Google Spreadsheet, klik <strong>Ekstensi (Extensions)</strong> ➡️ <strong>Apps Script</strong>.</li>
+          <li>Hapus kode bawaan, lalu salin dan tempel kode skrip di bawah ini ke editor Apps Script.</li>
+          <li>Klik tombol <strong>Terapkan (Deploy)</strong> di kanan atas ➡️ pilih <strong>Penerapan baru (New deployment)</strong>.</li>
+          <li>Pilih jenis <strong>Aplikasi Web (Web App)</strong>. Atur:
+            <ul style="padding-left: 18px; margin: 4px 0;">
+              <li><em>Jalankan sebagai (Execute as):</em> <strong>Saya (Me)</strong></li>
+              <li><em>Siapa saja yang memiliki akses (Who has access):</em> <strong>Siapa saja (Anyone)</strong> <span style="color: red; font-weight: bold;">(Wajib!)</span></li>
+            </ul>
+          </li>
+          <li>Klik <strong>Terapkan</strong>, berikan izin akun Google Anda, lalu salin <strong>URL Aplikasi Web (akhiran /exec)</strong> dan tempel pada kotak di atas.</li>
+        </ol>
+      </div>
+
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+        <strong style="font-size: 0.88rem; color: var(--primary-navy);">Kode Google Apps Script:</strong>
+        <button class="btn btn-secondary" style="padding: 4px 12px; font-size: 0.8rem;" onclick="copyScriptCode()">📋 Salin Kode Skrip</button>
+      </div>
+      <div class="code-preview-block" id="scriptCodeBlock">function doPost(e) {
+  var lock = LockService.getScriptLock();
+  lock.tryLock(10000);
+  try {
+    var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+    var data = {};
+    if (e.postData && e.postData.contents) {
+      try { data = JSON.parse(e.postData.contents); } catch(err) { data = e.parameter; }
+    } else { data = e.parameter; }
+
+    if (sheet.getLastRow() === 0) {
+      var headers = ["Waktu", "Nama Siswa", "Kelas", "No. Absen", "Nilai Kuis", "Benar", "Salah", "Predikat", "Lencana", "Refleksi 1", "Refleksi 2", "Refleksi 3", "Refleksi 4"];
+      sheet.appendRow(headers);
+      sheet.getRange(1, 1, 1, headers.length).setFontWeight("bold").setBackground("#1e3a8a").setFontColor("#ffffff");
+    }
+
+    sheet.appendRow([
+      data.timestamp || new Date().toLocaleString("id-ID"),
+      data.nama || "-",
+      data.kelas || "-",
+      data.absen || "-",
+      Number(data.nilai) || 0,
+      Number(data.benar) || 0,
+      Number(data.salah) || 0,
+      data.predikat || "-",
+      data.lencana || "-",
+      data.refleksi1 || "-",
+      data.refleksi2 || "-",
+      data.refleksi3 || "-",
+      data.refleksi4 || "-"
+    ]);
+
+    return ContentService.createTextOutput(JSON.stringify({status: "success"})).setMimeType(ContentService.MimeType.JSON);
+  } catch (error) {
+    return ContentService.createTextOutput(JSON.stringify({status: "error", message: error.toString()})).setMimeType(ContentService.MimeType.JSON);
+  } finally {
+    lock.releaseLock();
+  }
+}
+
+function doGet(e) {
+  return ContentService.createTextOutput("Endpoint Google Apps Script Nilai Jelajah Nusantara Aktif!");
+}</div>
+
+      <button class="btn btn-primary" style="width: 100%; margin-top: 14px;" onclick="closeModal('modal-sheets-setup')">Selesai / Tutup Pengaturan</button>
+    </div>
+  </div>
+
+  <!-- MODAL DETAIL KERAJAAN -->
+  <div class="modal-overlay" id="modal-kingdom">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeModal('modal-kingdom')">✖</button>
+      <div id="modalKingdomContent">
+        <!-- Injected via JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL DETAIL KOMODITAS -->
+  <div class="modal-overlay" id="modal-commodity">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeModal('modal-commodity')">✖</button>
+      <div id="modalCommodityContent">
+        <!-- Injected via JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- JAVASCRIPT APPLICATION LOGIC -->
+  <script>
+    /* =========================================================
+       1. GLOBAL STATE & SOUND SYNTHESIZER
+       ========================================================= */
+    const state = {
+      studentName: 'Raden Wijaya',
+      studentClass: 'VIII-A',
+      studentAbsen: '15',
+      studentAvatar: '🧭',
+      audioEnabled: true,
+      currentView: 'view-welcome',
+      visitedPoints: new Set(),
+      badges: {
+        map: false,
+        monsoon: false,
+        merchant: false,
+        detective: false,
+        scholar: false
+      },
+      quizAnswers: new Array(15).fill(null),
+      quizScore: null,
+      quizCurrentIndex: 0,
+      reflections: { r1: '', r2: '', r3: '', r4: '' },
+      sheetsScriptUrl: localStorage.getItem('mpi_sheets_url') || ''
+    };
+
+    // Web Audio Synthesizer
+    const AudioContext = window.AudioContext || window.webkitAudioContext;
+    let audioCtx = null;
+
+    function playTone(freq, type = 'sine', duration = 0.15) {
+      if (!state.audioEnabled) return;
+      try {
+        if (!audioCtx) audioCtx = new AudioContext();
+        if (audioCtx.state === 'suspended') audioCtx.resume();
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.type = type;
+        osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+        gain.gain.setValueAtTime(0.12, audioCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + duration);
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        osc.start();
+        osc.stop(audioCtx.currentTime + duration);
+      } catch (e) {
+        console.warn('Audio not allowed yet:', e);
+      }
+    }
+
+    function soundClick() { playTone(580, 'sine', 0.08); }
+    function soundCorrect() {
+      playTone(523.25, 'triangle', 0.1);
+      setTimeout(() => playTone(659.25, 'triangle', 0.1), 100);
+      setTimeout(() => playTone(783.99, 'triangle', 0.25), 200);
+    }
+    function soundWrong() {
+      playTone(220, 'sawtooth', 0.15);
+      setTimeout(() => playTone(196, 'sawtooth', 0.2), 150);
+    }
+    function soundBadge() {
+      playTone(440, 'triangle', 0.1);
+      setTimeout(() => playTone(554.37, 'triangle', 0.1), 100);
+      setTimeout(() => playTone(659.25, 'triangle', 0.1), 200);
+      setTimeout(() => playTone(880, 'triangle', 0.35), 300);
+    }
+
+    function toggleAudio() {
+      state.audioEnabled = !state.audioEnabled;
+      const btn = document.getElementById('audioToggleBtn');
+      btn.textContent = state.audioEnabled ? '🔊' : '🔇';
+      soundClick();
+    }
+
+    /* =========================================================
+       2. NAVIGATION & PROGRESS TRACKING
+       ========================================================= */
+    function navigateTo(viewId) {
+      soundClick();
+      document.querySelectorAll('.view-section').forEach(sec => sec.classList.remove('active'));
+      const target = document.getElementById(viewId);
+      if (target) {
+        target.classList.add('active');
+        state.currentView = viewId;
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+      updateGlobalProgress();
+    }
+
+    function selectAvatar(emoji, el) {
+      soundClick();
+      document.querySelectorAll('.avatar-option').forEach(opt => opt.classList.remove('selected'));
+      el.classList.add('selected');
+      state.studentAvatar = emoji;
+    }
+
+    function startAdventure() {
+      const nameInput = document.getElementById('studentNameInput').value.trim();
+      const classInput = document.getElementById('studentClassInput').value.trim();
+      const absenInput = document.getElementById('studentAbsenInput').value.trim();
+
+      if (nameInput) state.studentName = nameInput;
+      if (classInput) state.studentClass = classInput;
+      if (absenInput) state.studentAbsen = absenInput;
+
+      document.getElementById('userNameDisplay').textContent = state.studentName;
+      document.getElementById('userClassBadge').textContent = state.studentClass;
+      document.getElementById('userAvatar').textContent = state.studentAvatar;
+      document.getElementById('certStudentName').textContent = state.studentName;
+      document.getElementById('certStudentDetails').textContent = `Kelas: ${state.studentClass} • No. Presensi: ${state.studentAbsen}`;
+      
+      soundCorrect();
+      navigateTo('view-dashboard');
+    }
+
+    function updateGlobalProgress() {
+      let score = 0;
+      if (state.visitedPoints.size >= 4) score += 20;
+      if (state.badges.monsoon) score += 15;
+      if (state.badges.merchant) score += 20;
+      if (state.badges.detective) score += 20;
+      if (state.quizScore !== null) score += 25;
+
+      const progress = Math.min(100, score);
+      document.getElementById('globalProgressBar').style.width = progress + '%';
+      document.getElementById('statProgress').textContent = progress + '%';
+
+      // Update Badges Counter
+      const unlockedCount = Object.values(state.badges).filter(Boolean).length;
+      document.getElementById('statBadges').textContent = `${unlockedCount} / 5`;
+
+      // Update Badge visual cards
+      if (state.badges.map) document.getElementById('badgeCard1')?.classList.add('unlocked');
+      if (state.badges.monsoon) document.getElementById('badgeCard2')?.classList.add('unlocked');
+      if (state.badges.merchant) document.getElementById('badgeCard3')?.classList.add('unlocked');
+      if (state.badges.detective) document.getElementById('badgeCard4')?.classList.add('unlocked');
+      if (state.badges.scholar) document.getElementById('badgeCard5')?.classList.add('unlocked');
+
+      // Update Dashboard badge status
+      if (state.visitedPoints.size >= 8) {
+        const b = document.getElementById('badge-map-status');
+        b.textContent = 'Selesai 8/8';
+        b.className = 'status-badge completed';
+      }
+      if (state.badges.merchant) {
+        const b = document.getElementById('badge-m2-status');
+        b.textContent = 'Simulasi Tuntas';
+        b.className = 'status-badge completed';
+      }
+      if (state.badges.detective) {
+        const b = document.getElementById('badge-m3-status');
+        b.textContent = 'Detektif Tuntas';
+        b.className = 'status-badge completed';
+      }
+    }
+
+    function unlockBadge(badgeKey, badgeName) {
+      if (!state.badges[badgeKey]) {
+        state.badges[badgeKey] = true;
+        soundBadge();
+        updateGlobalProgress();
+      }
+    }
+
+    /* =========================================================
+       3. PETA PETUALANGAN NUSANTARA DATA & LOGIC
+       ========================================================= */
+    const mapPointsData = {
+      1: {
+        title: "Selat Malaka — Pintu Gerbang Maritim Asia",
+        category: "Selat & Jalur Laut",
+        desc: "Selat Malaka merupakan salah satu jalur laut tersibuk dalam sejarah peradaban dunia. Selat sempit ini menjadi pintu masuk utama kapal-kapal dari India, Arab, dan Persia menuju kepulauan Nusantara dan Kekaisaran Tiongkok. Menguasai selat ini berarti menguasai urat nadi perdagangan internasional.",
+        commodity: "Jalur Transito Bebas, Pungutan Bea Masuk, Pengawalan Armada Laut Kuno.",
+        prompt: "Mengapa kapal dagang asing tidak memotong jalur darat dan lebih memilih berlayar memutar lewat Selat Malaka?",
+        answer: "Jalur laut memungkinkan kapal mengangkut barang berat dan berukuran besar (seperti keramik, guci perunggu, dan berkarung-karung beras) yang mustahil diangkut melintasi hutan lebat dan pegunungan terjal jalur darat."
+      },
+      2: {
+        title: "Bandar Barus (Fansur) — Pelabuhan Purba Kapur Barus",
+        category: "Sentra Rempah & Hasil Bumi",
+        desc: "Terletak di pesisir barat Sumatra Utara, Barus (dikenal di dunia Arab sebagai Fansur) telah dicatat dalam naskah geografi Yunani karya Claudius Ptolemaeus abad ke-2 Masehi. Kota pelabuhan ini masyhur karena menghasilkan getah kapur barus kristal terbaik dunia.",
+        commodity: "Kapur Barus (Dryobalanops aromatica), Kemenyan murni, Kayu Gaharu.",
+        prompt: "Mengapa kapur barus dari Barus bernilai sangat mahal di peradaban Mesir, Yunani, dan Arab kuno?",
+        answer: "Kapur barus digunakan sebagai bahan pengawet jasad bangsawan/mumi, bahan obat-obatan antiseptik, serta wewangian dalam upacara suci peribadatan keagamaan yang tidak dapat digantikan bahan lain."
+      },
+      3: {
+        title: "Palembang — Ibukota Kemaharajaan Sriwijaya",
+        category: "Pusat Kerajaan Maritim",
+        desc: "Sriwijaya berkembang sejak abad ke-7 Masehi di tepian Sungai Musi, Palembang. Sebagai imperium maritim, Sriwijaya menempatkan armada bajak laut laut (orang laut) sebagai penjaga kedaulatan di Selat Malaka. Sriwijaya juga menjadi pusat pengkajian agama Buddha Mahayana terbesar di Asia Tenggara tempat singgah biksu Tiongkok I-Tsing.",
+        commodity: "Emas, Gading gajah, Cula badak, Lada, Kain sutra, Bea cukai pelayaran.",
+        prompt: "Bagaimana cara Sriwijaya membuat seluruh kapal asing wajib singgah dan membayar pajak di pelabuhannya?",
+        answer: "Sriwijaya membangun kekuatan angkatan laut yang sangat tangguh untuk menumpas bajak laut liar sekaligus memaksa kapal-kapal niaga merapat ke dermaganya dengan jaminan keamanan dan perbekalan yang lengkap."
+      },
+      4: {
+        title: "Selat Sunda & Kerajaan Tarumanegara",
+        category: "Selat & Jalur Alternatif",
+        desc: "Selat Sunda menghubungkan Samudra Hindia bagian selatan dengan Laut Jawa. Di pesisir utara dekat muara Sungai Citarum berkembang Kerajaan Tarumanegara di bawah Raja Purnawarman pada abad ke-5 Masehi, yang terkenal dengan keahlian tata kelola air dan irigasi agraris.",
+        commodity: "Beras, Cula badak, Kulit penyu, Kayu jati.",
+        prompt: "Kapan Selat Sunda menjadi rute yang lebih disukai kapal pedagang dibanding Selat Malaka?",
+        answer: "Ketika terjadi konflik militer atau pembajakan liar di Selat Malaka, kapal-kapal dagang dari Samudra Hindia akan berlayar menyusuri pantai barat Sumatra lalu masuk ke Laut Jawa melalui Selat Sunda."
+      },
+      5: {
+        title: "Muara Kaman (Sungai Mahakam) — Kerajaan Kutai",
+        category: "Pusat Kerajaan Kuno",
+        desc: "Terletak di Kalimantan Timur, Kutai Martapura merupakan bukti tertua berdirinya kerajaan bercorak Hindu di Indonesia (abad ke-4 Masehi). Di sinilah ditemukan 7 tiang batu Yupa bertuliskan huruf Pallawa yang mencatat kemurahan hati Raja Mulawarman menghadiahkan 20.000 ekor sapi.",
+        commodity: "Emas, Getah damar, Bulu burung merak, Sarang burung walet.",
+        prompt: "Mengapa pusat Kerajaan Kutai terletak jauh di pedalaman Sungai Mahakam dan bukan di tepi laut lepas?",
+        answer: "Sungai Mahakam adalah 'jalan tol air' purba di Kalimantan yang menghubungkan kekayaan hutan pedalaman dengan pedagang maritim, sekaligus menawarkan lokasi yang terlindung dari serbuan badai samudra lepas."
+      },
+      6: {
+        title: "Lembah Prambanan & Kedu — Mataram Kuno (Medang)",
+        category: "Pusat Kerajaan Agraris & Toleransi",
+        desc: "Lembah Jawa Tengah yang diapit gunung berapi subur melahirkan Kerajaan Mataram Kuno pada abad ke-8 Masehi. Kerajaan ini menjadi saksi toleransi luar biasa antara Dinasti Sanjaya (Hindu Siwa) dan Dinasti Syailendra (Buddha Mahayana) yang membangun Candi Prambanan dan Borobudur berdampingan.",
+        commodity: "Beras sawah, Kerajinan logam perunggu, Gula kelapa, Garam.",
+        prompt: "Bagaimana peradaban agraris Mataram Kuno dapat membiayai pembangunan candi-candi batu megah sebesar Borobudur?",
+        answer: "Melalui sistem pengelolaan surplus panen beras yang melimpah dan sistem gotong royong kerja bakti (sambatan), didukung pajak perniagaan yang masuk melalui pelabuhan-pelabuhan sungai di Laut Jawa."
+      },
+      7: {
+        title: "Trowulan / DAS Brantas — Kemaharajaan Majapahit",
+        category: "Pusat Kerajaan Pemersatu",
+        desc: "Majapahit (abad ke-13 s.d. 16 Masehi) berpusat di lembah Sungai Brantas, Trowulan, Jawa Timur. Di bawah kepemimpinan Raja Hayam Wuruk dan Mahapatih Gajah Mada, Majapahit mengombinasikan keunggulan agraris pedalaman dengan armada laut gagah berani untuk mempersatukan Nusantara di bawah panji Sumpah Palapa.",
+        commodity: "Beras lumbung pangan, Kain tenun, Gula tebu, Rempah transit.",
+        prompt: "Mengapa Sungai Brantas memegang peranan krusial bagi kejayaan Kerajaan Majapahit?",
+        answer: "Sungai Brantas berfungsi ganda: sebagai sumber irigasi persawahan lumbung pangan dan jalur transportasi perahu yang menghubungkan ibukota Trowulan langsung dengan pelabuhan internasional di Canggu dan Hujung Galuh (Surabaya)."
+      },
+      8: {
+        title: "Kepulauan Maluku & Banda — Zamrud Rempah Dunia",
+        category: "Sentra Rempah Eksklusif",
+        desc: "Kepulauan Maluku Utara (Ternate, Tidore, Motir, Makian, Bacan) dan Kepulauan Banda merupakan satu-satunya tempat di muka bumi pada masa lampau yang menghasilkan pohon cengkih dan pala asli. Tempat ini menjadi tujuan akhir dari Jalur Rempah dunia.",
+        commodity: "Cengkih (Syzygium aromaticum), Biji Pala & Fuli (Myristica fragrans).",
+        prompt: "Apa yang membuat rempah Maluku begitu istimewa hingga bangsa Eropa rela berlayar mengelilingi separuh bumi?",
+        answer: "Rempah-rempah ini berkhasiat menghangatkan tubuh di musim dingin Eropa, mengawetkan daging sebelum era kulkas ditemukan, dan menjadi simbol kemewahan sosial tertinggi di kalangan istana raja-raja dunia."
+      }
+    };
+
+    function showPointDetail(id) {
+      soundClick();
+      state.visitedPoints.add(id);
+      if (state.visitedPoints.size >= 8) {
+        unlockBadge('map', 'Penjelajah Peta');
+      }
+      updateGlobalProgress();
+
+      const data = mapPointsData[id];
+      if (!data) return;
+
+      document.getElementById('pointCategory').textContent = data.category;
+      document.getElementById('pointTitle').textContent = data.title;
+      document.getElementById('pointDesc').textContent = data.desc;
+      document.getElementById('pointCommodity').textContent = data.commodity;
+      document.getElementById('pointPrompt').textContent = data.prompt;
+      document.getElementById('pointAnswer').textContent = data.answer;
+      document.getElementById('pointAnswer').style.display = 'none';
+
+      const panel = document.getElementById('mapDetailPanel');
+      panel.style.display = 'block';
+      panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
+    function togglePromptAnswer() {
+      soundClick();
+      const ans = document.getElementById('pointAnswer');
+      ans.style.display = (ans.style.display === 'none' || ans.style.display === '') ? 'block' : 'none';
+    }
+
+    function closeMapDetail() {
+      soundClick();
+      document.getElementById('mapDetailPanel').style.display = 'none';
+    }
+
+    function filterMapPoints(type, btn) {
+      soundClick();
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      document.querySelectorAll('.map-pin').forEach(pin => {
+        if (type === 'all' || pin.getAttribute('data-type') === type) {
+          pin.style.display = 'block';
+        } else {
+          pin.style.display = 'none';
+        }
+      });
+    }
+
+    /* =========================================================
+       4. TABS & FLASHCARDS LOGIC
+       ========================================================= */
+    function switchTab(group, tabId, btn) {
+      soundClick();
+      const parent = btn.parentElement;
+      parent.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const container = parent.parentElement;
+      container.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+      const targetPane = document.getElementById(tabId);
+      if (targetPane) targetPane.classList.add('active');
+    }
+
+    function flipCard(card) {
+      soundClick();
+      card.classList.toggle('flipped');
+    }
+
+    function runMiniSim(routeId, cardEl) {
+      soundClick();
+      document.querySelectorAll('.sim-choice-card').forEach(c => c.classList.remove('selected'));
+      cardEl.classList.add('selected');
+
+      const box = document.getElementById('miniSimResult');
+      const title = document.getElementById('simResultTitle');
+      const desc = document.getElementById('simResultDesc');
+      box.style.display = 'block';
+
+      if (routeId === 1) {
+        title.textContent = "🧭 Kamu Berlayar Melalui Selat Malaka!";
+        desc.innerHTML = "Kapalmu bersandar di pelabuhan ramai Sumatra Timur. Kamu menjumpai saudagar dari India Selatan yang menukarkan manik-manik kaca dan kain katun halus dengan lada lokal. Terjadi interaksi bahasa Melayu pasar dan kamu mulai mempelajari aksara Pallawa yang dibawa para pedagang.";
+      } else if (routeId === 2) {
+        title.textContent = "🧭 Kamu Berlayar Menyusuri Pantai Barat Sumatra!";
+        desc.innerHTML = "Armadamu merapat di Bandar Barus. Aroma semerbak kapur barus memenuhi dermaga. Seorang tabib dari Timur Tengah membeli getah barus kristalmu dengan dinar emas murni. Kamu mengamati bagaimana penduduk lokal mengajarkan cara memanen getah pohon tanpa merusak hutan.";
+      } else {
+        title.textContent = "🧭 Kamu Menjelajah Laut Banda Menuju Maluku!";
+        desc.innerHTML = "Setelah menempuh ombak tenang berkat Muson Timur, kamu tiba di pulau penghasil pala. Kamu bertukar hasil tenun Jawa dan parang besi dengan karung-karung buah pala berkulit merah (fuli). Keberhasilan rute ini membuktikan kemahiran navigasi perbintangan bahari nenek moyang!";
+      }
+
+      unlockBadge('monsoon', 'Nakhoda Muson');
+    }
+
+    /* =========================================================
+       5. SIMULASI "JADI PEDAGANG NUSANTARA"
+       ========================================================= */
+    let merchantState = {
+      step: 1,
+      commodity: null,
+      destination: null,
+      season: null
+    };
+
+    function renderMerchantGame() {
+      const stepNum = document.getElementById('gameStepNum');
+      const stepDesc = document.getElementById('gameStepDesc');
+      const content = document.getElementById('gameStepContent');
+      const feedback = document.getElementById('gameFeedbackBox');
+      feedback.style.display = 'none';
+
+      stepNum.textContent = merchantState.step;
+
+      if (merchantState.step === 1) {
+        stepDesc.textContent = "Langkah 1: Pilih Komoditas Unggulan Muatan Kapalmu:";
+        content.innerHTML = `
+          <div class="sim-options-grid">
+            <div class="sim-choice-card" onclick="selectMerchantCommodity('Cengkih Maluku')">
+              <div style="font-size: 2rem;">🌱</div>
+              <strong>20 Peti Cengkih</strong>
+              <p style="font-size: 0.8rem; color: var(--text-muted);">Sangat bernilai tinggi di Tiongkok dan Romawi</p>
+            </div>
+            <div class="sim-choice-card" onclick="selectMerchantCommodity('Pala Banda')">
+              <div style="font-size: 2rem;">🌰</div>
+              <strong>15 Karung Pala & Fuli</strong>
+              <p style="font-size: 0.8rem; color: var(--text-muted);">Aroma wangi eksklusif buruan bangsawan dunia</p>
+            </div>
+            <div class="sim-choice-card" onclick="selectMerchantCommodity('Kapur Barus')">
+              <div style="font-size: 2rem;">🪵</div>
+              <strong>10 Kotak Kapur Barus</strong>
+              <p style="font-size: 0.8rem; color: var(--text-muted);">Kristal wangi bernilai setara emas murni</p>
+            </div>
+          </div>
+        `;
+      } else if (merchantState.step === 2) {
+        stepDesc.textContent = `Langkah 2: Kamu membawa ${merchantState.commodity}. Tentukan Pelabuhan Tujuan Niaga:`;
+        content.innerHTML = `
+          <div class="sim-options-grid">
+            <div class="sim-choice-card" onclick="selectMerchantDest('Kanton (Tiongkok)')">
+              <div style="font-size: 2rem;">🏮</div>
+              <strong>Kanton / Guangzhou (Tiongkok)</strong>
+              <p style="font-size: 0.8rem; color: var(--text-muted);">Pusat Dinasti Han/Tang, pembeli rempah utama</p>
+            </div>
+            <div class="sim-choice-card" onclick="selectMerchantDest('Pantai Malabar (India)')">
+              <div style="font-size: 2rem;">🛕</div>
+              <strong>Pantai Malabar (India Selatan)</strong>
+              <p style="font-size: 0.8rem; color: var(--text-muted);">Pusat perniagaan kain sutra dan dupa keagamaan</p>
+            </div>
+          </div>
+        `;
+      } else if (merchantState.step === 3) {
+        stepDesc.textContent = `Langkah 3: Berlayar menuju ${merchantState.destination}. Kapan Waktu Berangkat yang Tepat?`;
+        content.innerHTML = `
+          <div class="sim-options-grid">
+            <div class="sim-choice-card" onclick="selectMerchantSeason('muson-barat')">
+              <div style="font-size: 2rem;">🌧️</div>
+              <strong>Musim Angin Muson Barat (Desember)</strong>
+              <p style="font-size: 0.8rem; color: var(--text-muted);">Angin berhembus dari barat laut menuju tenggara</p>
+            </div>
+            <div class="sim-choice-card" onclick="selectMerchantSeason('muson-timur')">
+              <div style="font-size: 2rem;">☀️</div>
+              <strong>Musim Angin Muson Timur (Juli)</strong>
+              <p style="font-size: 0.8rem; color: var(--text-muted);">Angin berhembus dari tenggara/Australia menuju barat laut</p>
+            </div>
+          </div>
+        `;
+      } else if (merchantState.step === 4) {
+        stepDesc.textContent = "Langkah 4: Laporan Keberhasilan Ekspedisi Dagang!";
+        soundCorrect();
+        unlockBadge('merchant', 'Pedagang Cerdas');
+
+        content.innerHTML = `
+          <div style="background: white; padding: 24px; border-radius: var(--radius-md); border: 2px solid var(--success); text-align: center;">
+            <div style="font-size: 3rem; margin-bottom: 8px;">🎉</div>
+            <h3 style="color: var(--primary-navy); margin-bottom: 8px;">Selamat, Nakhoda Saudagar!</h3>
+            <p style="font-size: 0.95rem; color: var(--text-main); line-height: 1.7; margin-bottom: 16px;">
+              Armada perahumu berhasil tiba dengan selamat di <strong>${merchantState.destination}</strong> membawa <strong>${merchantState.commodity}</strong>. 
+              Kamu berhasil menukarkan rempah Nusantara dengan <em>guci keramik porselen Dinasti Tang, gulungan kain sutra mewah, dan koin perak</em>. 
+              Keuntunganmu melimpah dan reputasi pelaut Nusantara diakui di bandar internasional!
+            </p>
+            <button class="btn btn-primary" onclick="resetMerchantGame()">Mainkan Rute Lain 🔄</button>
+          </div>
+        `;
+      }
+    }
+
+    function selectMerchantCommodity(name) {
+      soundClick();
+      merchantState.commodity = name;
+      merchantState.step = 2;
+      renderMerchantGame();
+    }
+
+    function selectMerchantDest(dest) {
+      soundClick();
+      merchantState.destination = dest;
+      merchantState.step = 3;
+      renderMerchantGame();
+    }
+
+    function selectMerchantSeason(seasonKey) {
+      soundClick();
+      merchantState.season = seasonKey;
+      merchantState.step = 4;
+      renderMerchantGame();
+    }
+
+    function resetMerchantGame() {
+      soundClick();
+      merchantState = { step: 1, commodity: null, destination: null, season: null };
+      renderMerchantGame();
+    }
+
+    /* =========================================================
+       6. DETEKTIF SEJARAH & MODAL DETAIL KERAJAAN
+       ========================================================= */
+    function solveDetectiveCase(caseId) {
+      soundClick();
+      unlockBadge('detective', 'Detektif Sejarah');
+      const box = document.getElementById('detectiveResultBox');
+      const title = document.getElementById('detCaseTitle');
+      const desc = document.getElementById('detCaseDesc');
+      box.style.display = 'block';
+
+      if (caseId === 1) {
+        title.textContent = "🕵️ Analisis Kasus 1: Saluran Sungai Gomati & Candrabhaga";
+        desc.innerHTML = "<strong>Temuan Sejarawan:</strong> Prasasti Tugu mencatat Raja Purnawarman memimpin penggalian sungai sepanjang 6.122 busur (±11 km) dalam 21 hari. <em>Kesimpulan Detektif:</em> Ini membuktikan Tarumanegara telah memiliki peradaban teknik sipil air yang sangat maju untuk mencegah banjir musiman di ibukota dan mengairi persawahan rakyat, sehingga perekonomian agrarisnya sangat makmur.";
+      } else if (caseId === 2) {
+        title.textContent = "🕵️ Analisis Kasus 2: Relief Perahu Bercadik di Borobudur";
+        desc.innerHTML = "<strong>Temuan Sejarawan:</strong> Di dinding Candi Borobudur dipahat perahu bercadik ganda dengan layar terkembang dan tiang kemudi ganda. <em>Kesimpulan Detektif:</em> Ini adalah bukti primer otentik bahwa nenek moyang bangsa Indonesia adalah pelaut-pelaut ulung yang telah menguasai teknologi perkapalan samudra dan navigasi astronomi jauh sebelum kedatangan bangsa Eropa.";
+      } else {
+        title.textContent = "🕵️ Analisis Kasus 3: Sedekah 20.000 Ekor Sapi Raja Mulawarman";
+        desc.innerHTML = "<strong>Temuan Sejarawan:</strong> Prasasti Yupa di Muara Kaman mencatat Raja Mulawarman menyedekahkan 20.000 ekor sapi kepada kaum Brahmana di tanah suci Waprakeswara. <em>Kesimpulan Detektif:</em> Hal ini membuktikan bahwa Kutai merupakan kerajaan yang sangat kaya, memiliki peternakan luas yang subur, dan telah mengadopsi ajaran Hindu Siwa secara terhormat dengan menghargai kaum rohaniwan.";
+      }
+    }
+
+    const kingdomData = {
+      kutai: {
+        title: "Kerajaan Kutai Martapura (Abad IV M)",
+        location: "Muara Kaman, Sungai Mahakam, Kalimantan Timur",
+        monarch: "Kudungga, Aswawarman (Wangsakarta), Mulawarman",
+        relics: "7 Buah Tiang Batu Tulis (Yupa) beraksara Pallawa bahasa Sanskerta",
+        history: "Kutai adalah kerajaan Hindu tertua di Nusantara. Prasasti Yupa menceritakan Raja Mulawarman yang dermawan memberikan kurban 20.000 ekor sapi kepada para Brahmana di Waprakeswara. Nama Kudungga menunjukkan nama asli Indonesia, sedangkan nama Aswawarman dan Mulawarman menunjukkan pengaruh budaya Hindu Sanskerta mulai diterapkan oleh keluarga raja."
+      },
+      taruma: {
+        title: "Kerajaan Tarumanegara (Abad V M)",
+        location: "Lembah Sungai Citarum, Cisadane, Jawa Barat",
+        monarch: "Raja Purnawarman",
+        relics: "Prasasti Ciaruteun, Kebon Kopi, Tugu, Jambu, Pasir Awi, Muara Cianten, Cidanghiang",
+        history: "Tarumanegara bercorak Hindu aliran Wisnu. Prasasti Ciaruteun memuat cap telapak kaki Raja Purnawarman yang disamakan dengan kaki Dewa Wisnu dan telapak kaki gajah Airawata. Prasasti Tugu mencatat proyek irigasi besar penggalian Sungai Gomati dan Candrabhaga untuk mencegah banjir dan mengairi sawah rakyat."
+      },
+      sriwijaya: {
+        title: "Kedatuan Sriwijaya (Abad VII - XII M)",
+        location: "Palembang (Sungai Musi), Sumatra Selatan",
+        monarch: "Dapunta Hyang Sri Jayanasa, Balaputradewa, Sri Sanggrama Wijayatunggawarman",
+        relics: "Prasasti Kedukan Bukit, Talang Tuo, Telaga Batu, Kota Kapur, Candi Muara Takus",
+        history: "Kemaharajaan maritim adidaya yang mengontrol perniagaan Selat Malaka dan Selat Sunda. Menjadi pusat keilmuan agama Buddha Mahayana terkemuka di Asia di bawah bimbingan guru besar Sakyakirti. Hubungan diplomasinya terjalin erat dengan Dinasti Tang di Tiongkok dan Kerajaan Chola di India."
+      },
+      mataram: {
+        title: "Kerajaan Mataram Kuno / Medang (Abad VIII - X M)",
+        location: "Lembah Kali Opak dan Progo, Jawa Tengah (kemudian pindah ke Jatim oleh Mpu Sindok)",
+        monarch: "Rakai Sanjaya, Rakai Panangkaran, Samaratungga, Pramodawardhani, Dyah Balitung",
+        relics: "Candi Borobudur, Candi Prambanan, Candi Kalasan, Candi Mendut, Candi Plaosan",
+        history: "Kerajaan agraris yang termasyhur dengan toleransi keagamaan yang tinggi. Dua wangsa besar, Sanjaya (Hindu) dan Syailendra (Buddha), saling berbesan dan bersama-sama mendirikan monumen candi megah yang kini menjadi warisan budaya dunia UNESCO."
+      },
+      kediri: {
+        title: "Kerajaan Kediri / Panjalu (Abad XI - XII M)",
+        location: "Daha / Kediri, tepi Sungai Brantas, Jawa Timur",
+        monarch: "Airlangga (leluhur), Jayabaya, Kertajaya",
+        relics: "Kitab Kakawin Bharatayuddha, Prasasti Hantang, Kitab Hariwangsa, Kitab Smaradahana",
+        history: "Masa keemasan kesusastraan Jawa Kuno. Di bawah Raja Jayabaya, ramalan masa depan dan kitab epos Bharatayuddha digubah oleh Mpu Sedah dan Mpu Panuluh dengan semboyan Panjalu Jayati (Kediri Menang)."
+      },
+      singhasari: {
+        title: "Kerajaan Singhasari (Abad XIII M)",
+        location: "Tumapel, Malang, Jawa Timur",
+        monarch: "Ken Arok (Rajasa), Anusapati, Tohjaya, Wisnuwardhana, Kertanegara",
+        relics: "Candi Singhasari, Candi Jago, Candi Kidal, Arca Prajnaparamita (Ken Dedes)",
+        history: "Didirikan oleh Ken Arok setelah mengalahkan Kertajaya di Ganter. Raja terakhirnya, Kertanegara, memiliki visi wawasan nusantara melalui Ekspedisi Pamalayu (1275 M) untuk mempersatukan kerajaan-kerajaan pulau seberang guna menghadapi ancaman ekspansi Kubilai Khan dari Kekaisaran Mongol."
+      },
+      majapahit: {
+        title: "Kemaharajaan Majapahit (Abad XIII - XVI M)",
+        location: "Trowulan, Mojokerto, Jawa Timur",
+        monarch: "Raden Wijaya, Jayanegara, Tribhuwana Tunggadewi, Hayam Wuruk",
+        relics: "Kitab Negarakertagama (Mpu Prapanca), Kitab Sutasoma (Mpu Tantular), Candi Penataran, Gapura Bajang Ratu",
+        history: "Puncak peradaban kerajaan Hindu-Buddha di Nusantara. Mahapatih Gajah Mada mengikrarkan Sumpah Palapa untuk menyatukan Nusantara. Dari Kitab Sutasoma karya Mpu Tantular lahir semboyan abadi bangsa Indonesia: Bhinneka Tunggal Ika (berbeda-beda tetapi tetap satu jua)."
+      }
+    };
+
+    function showKingdomModal(key) {
+      soundClick();
+      const k = kingdomData[key];
+      if (!k) return;
+      const content = document.getElementById('modalKingdomContent');
+      content.innerHTML = `
+        <span class="hero-badge">Ensiklopedi Kerajaan Nusantara</span>
+        <h3 style="color: var(--primary-navy); margin: 8px 0;">${k.title}</h3>
+        <div style="background: var(--light-blue); padding: 14px; border-radius: var(--radius-md); margin-bottom: 14px; font-size: 0.9rem;">
+          <div><strong>📍 Wilayah Pusat:</strong> ${k.location}</div>
+          <div><strong>👑 Raja Termasyhur:</strong> ${k.monarch}</div>
+          <div><strong>🏛️ Peninggalan Utama:</strong> ${k.relics}</div>
+        </div>
+        <p style="color: var(--text-main); font-size: 0.95rem; line-height: 1.7; text-align: justify;">
+          ${k.history}
+        </p>
+      `;
+      openModal('modal-kingdom');
+    }
+
+    function showCommodityDetail(type) {
+      soundClick();
+      const content = document.getElementById('modalCommodityContent');
+      let title = '', origin = '', desc = '', significance = '';
+      if (type === 'cengkih') {
+        title = "Cengkih (Syzygium aromaticum)";
+        origin = "Kepulauan Maluku Utara (Ternate, Tidore, Motir, Makian, Bacan)";
+        desc = "Tangkai bunga kering aromatik yang hanya tumbuh subur di lereng gunung vulkanik Maluku. Pada masa lalu digunakan sebagai bumbu masakan, obat sakit gigi, dan penyegar napas istana kaisar Tiongkok.";
+        significance = "Diperdagangkan hingga ke Romawi kuno dan Alexandria Mesir dengan harga bernilai fantastis melebihi perak.";
+      } else if (type === 'pala') {
+        title = "Pala & Fuli (Myristica fragrans)";
+        origin = "Kepulauan Banda, Maluku Tengah";
+        desc = "Buah beraroma khas yang menghasilkan dua rempah sekaligus: biji pala di bagian dalam dan fuli (selaput merah pembungkus biji). Digunakan sebagai bumbu pengawet daging dan aroma harum.";
+        significance = "Kepulauan Banda menjadi satu-satunya habitat alami pohon pala di dunia hingga abad ke-18, menjadikannya 'emas hitam' buruan dunia.";
+      } else if (type === 'kapur') {
+        title = "Kapur Barus & Kemenyan";
+        origin = "Barus, Tapanuli Tengah, Sumatra Utara";
+        desc = "Kristal bening hasil ekstraksi pohon kapur (Dryobalanops aromatica) dan getah pohon kemenyan hutan hujan Sumatra.";
+        significance = "Disebut dalam catatan kuno bangsa Yunani, Arab, India, dan Tiongkok sebagai wewangian persembahan suci para dewa dan pengawet jasad bangsawan.";
+      } else {
+        title = "Keramik & Kain Sutra (Komoditas Impor)";
+        origin = "Tiongkok Dinasti Han, Tang, Song, dan India";
+        desc = "Piring, mangkuk, dan guci porselen glasir indah serta lembaran kain sutra tenun halus yang dibawa kapal niaga asing ke Nusantara.";
+        significance = "Benda-benda ini dijadikan mas kawin, pusaka leluhur, serta simbol kekuasaan dan kemewahan oleh para datu dan raja lokal Nusantara.";
+      }
+
+      content.innerHTML = `
+        <span class="hero-badge">Komoditas Jalur Rempah Dunia</span>
+        <h3 style="color: var(--primary-navy); margin: 8px 0;">${title}</h3>
+        <div style="background: #fef3c7; padding: 12px; border-radius: var(--radius-md); margin-bottom: 14px; font-size: 0.9rem; color: #92400e;">
+          <strong>📍 Asal Mula:</strong> ${origin}
+        </div>
+        <p style="font-size: 0.95rem; line-height: 1.6; margin-bottom: 12px;">${desc}</p>
+        <div style="background: #eff6ff; padding: 12px; border-radius: var(--radius-md); font-size: 0.9rem; color: #1e3a8a;">
+          <strong>⭐ Signifikansi Sejarah:</strong> ${significance}
+        </div>
+      `;
+      openModal('modal-commodity');
+    }
+
+    function openModal(modalId) {
+      soundClick();
+      const modal = document.getElementById(modalId);
+      if (modal) modal.classList.add('active');
+      if (modalId === 'modal-sheets-setup') {
+        document.getElementById('inputSheetsScriptUrl').value = state.sheetsScriptUrl;
+      }
+    }
+
+    function closeModal(modalId) {
+      soundClick();
+      const modal = document.getElementById(modalId);
+      if (modal) modal.classList.remove('active');
+    }
+
+    /* =========================================================
+       7. KUIS INTERAKTIF 15 SOAL LENGKAP
+       ========================================================= */
+    const quizQuestions = [
+      // Materi 1 (Soal 1-5)
+      {
+        category: "Materi 1: Kondisi Geografis",
+        question: "1. Mengapa kondisi geografis kepulauan Indonesia pada masa lalu justru mempermudah interaksi antarbangsa dan bukan memisahkannya?",
+        options: [
+          "Karena pulau-pulau di Indonesia saling berdekatan sehingga orang dapat menyeberang tanpa perahu.",
+          "Karena laut dipandang sebagai jembatan penghubung yang dilayari kapal dagang memanfaatkan keteraturan angin muson.",
+          "Karena tidak ada negara lain di Asia yang memiliki pelaut sehebat pelaut Nusantara.",
+          "Karena bangsa asing datang untuk menjajah seluruh pulau sekaligus sejak abad pertama Masehi."
+        ],
+        correct: 1,
+        explanation: "Konsep utama geografi maritim Nusantara: laut bukanlah penghalang atau pemisah, melainkan jalan raya perairan terbuka yang menghubungkan pulau-pulau serta menghubungkan Nusantara dengan jaringan perdagangan dunia."
+      },
+      {
+        category: "Materi 1: Kondisi Geografis",
+        question: "2. [Benar atau Salah] Angin Muson Barat yang bertiup sekitar bulan Oktober hingga April membawa uap air yang menyebabkan musim hujan di Nusantara dan membantu kapal dagang dari barat berlayar masuk ke kepulauan Indonesia.",
+        options: [
+          "BENAR — Angin Muson Barat berhembus dari Benua Asia menuju Australia membawa curah hujan dan mendorong kapal layar ke arah timur.",
+          "SALAH — Angin Muson Barat menyebabkan musim kemarau dan menghalangi seluruh pelayaran kapal dagang asing."
+        ],
+        correct: 0,
+        explanation: "Pernyataan BENAR. Muson Barat (Oktober-April) bergerak dari Asia bertekanan tinggi ke Australia bertekanan rendah, membawa banyak uap air dan dimanfaatkan pedagang India/Arab/Tiongkok untuk berlayar menuju pelabuhan Nusantara."
+      },
+      {
+        category: "Materi 1: Interaksi Bangsa Asing",
+        question: "3. Ketika para pedagang asing menunggu pergantian arah angin musim selama 4 hingga 6 bulan di pelabuhan Nusantara, dampak sosial-budaya apa yang paling nyata terjadi?",
+        options: [
+          "Para pedagang asing mendirikan benteng militer dan mengusir penduduk asli.",
+          "Terjadi pernikahan campuran, asimilasi bahasa, serta penyebaran budaya dan agama secara damai.",
+          "Penduduk setempat meninggalkan mata pencaharian mereka sebagai petani dan menjadi budak.",
+          "Pemerintah kerajaan menutup pelabuhan agar kebudayaan asli tidak terpengaruh budaya luar."
+        ],
+        correct: 1,
+        explanation: "Masa tinggal yang cukup lama (menunggu pergantian angin) di pelabuhan menciptakan pemukiman asing (seperti pecinan dan koja), mendorong pernikahan campuran dengan warga setempat, serta mempercepat proses akulturasi budaya secara alamiah."
+      },
+      {
+        category: "Materi 1: Interaksi Bangsa Asing",
+        question: "4. Perhatikan peta perairan Asia Tenggara. Selat yang menjadi urat nadi utama penghubung antara pelayaran Samudra Hindia dengan Laut Cina Selatan adalah...",
+        options: [
+          "Selat Lombok",
+          "Selat Malaka",
+          "Selat Makassar",
+          "Selat Bali"
+        ],
+        correct: 1,
+        explanation: "Selat Malaka merupakan choke point strategis dunia yang menghubungkan India dan Timur Tengah di barat dengan kepulauan Nusantara dan Tiongkok di timur."
+      },
+      {
+        category: "Materi 1: Bentuk Interaksi",
+        question: "5. Masuknya pengaruh asing tidak menghilangkan kebudayaan asli Indonesia, melainkan melahirkan akulturasi. Contoh akulturasi pada seni bangunan candi di Indonesia adalah...",
+        options: [
+          "Bangunan candi dibuat persis sama seperti kuil-kuil batu di India tanpa modifikasi.",
+          "Bentuk candi memadukan punden berundak tradisi megalitikum asli Indonesia dengan stupa dan relief Hindu-Buddha.",
+          "Seluruh candi dibangun dari kayu jati tanpa menggunakan batu andesit.",
+          "Candi hanya difungsikan sebagai benteng perlindungan perang antarsuku."
+        ],
+        correct: 1,
+        explanation: "Akulturasi tampak nyata pada struktur candi di Indonesia (misalnya Candi Borobudur dan Sukuh) yang memiliki denah berteras-teras mirip punden berundak zaman praaksara megalitikum yang dipadukan dengan filosofi Buddha/Hindu."
+      },
+
+      // Materi 2 (Soal 6-10)
+      {
+        category: "Materi 2: Perdagangan Awal Masehi",
+        question: "6. Rempah endemik Nusantara yang berasal khusus dari Kepulauan Maluku Utara dan sangat bernilai tinggi di pasar dunia awal Masehi adalah...",
+        options: [
+          "Cengkih (Syzygium aromaticum)",
+          "Bawang merah dan bawang putih",
+          "Lada hitam dari Lampung",
+          "Tembakau dan kopi"
+        ],
+        correct: 0,
+        explanation: "Cengkih adalah tanaman endemik asli kepulauan vulkanik Maluku Utara (Ternate, Tidore, Motir, Makian, Bacan). Tembakau dan kopi baru masuk ke Nusantara berabad-abad kemudian pasca kedatangan bangsa Barat."
+      },
+      {
+        category: "Materi 2: Komoditas Niaga",
+        question: "7. [Mencocokkan Konsep] Manakah pasangan komoditas ekspor Nusantara dan daerah asal penghasilnya yang PALING TEPAT?",
+        options: [
+          "Kapur Barus — Pesisir Barus (Sumatra Utara)",
+          "Pala dan Fuli — Dataran Tinggi Dieng (Jawa Tengah)",
+          "Kayu Cendana — Pedalaman Kalimantan Barat",
+          "Cengkih — Pesisir Banten (Jawa Barat)"
+        ],
+        correct: 0,
+        explanation: "Kapur barus dan kemenyan berasal dari Barus (Fansur) di pesisir barat Sumatra Utara. Pala berasal dari Kepulauan Banda (Maluku), sedangkan cendana berasal dari Nusa Tenggara/Timor."
+      },
+      {
+        category: "Materi 2: Perdagangan Awal Masehi",
+        question: "8. [Fakta Sejarah Kritis] Apakah seluruh wilayah kepulauan Nusantara memperdagangkan rempah dalam volume dan intensitas yang sama persis pada abad ke-1 hingga ke-5 Masehi?",
+        options: [
+          "YA — Seluruh pulau dari Sabang sampai Merauke langsung memproduksi dan menjual cengkih dalam jumlah yang sama.",
+          "TIDAK — Hubungan dagang berkembang bertahap dengan intensitas berbeda; wilayah pesisir Selat Malaka dan Jawa berkembang lebih awal."
+        ],
+        correct: 1,
+        explanation: "Buku IPS Kelas VIII menegaskan bahwa intensitas hubungan niaga berbeda-beda menurut wilayah dan periode. Pesisir strategis mengalami kontak awal, sedangkan sentra rempah Maluku terhubung melalui jaringan pelayaran antarpulau berantai."
+      },
+      {
+        category: "Materi 2: Peran Pelabuhan",
+        question: "9. Pejabat penting di pelabuhan kuno Nusantara yang bertugas mengatur lalu lintas kapal, mengawasi bongkar muat, memungut bea cukai, dan menjadi hakim penyelesai perselisihan pedagang disebut...",
+        options: [
+          "Mahapatih",
+          "Syahbandar",
+          "Brahmana",
+          "Senopati"
+        ],
+        correct: 1,
+        explanation: "Syahbandar adalah kepala penguasa pelabuhan (harbour master) yang memegang peranan kunci dalam tata kelola perdagangan maritim di bandar-bandar pelabuhan Nusantara."
+      },
+      {
+        category: "Materi 2: Bukti Arkeologis",
+        question: "10. Penemuan pecahan keramik porselen Dinasti Han (206 SM – 220 M) di Sumatra Selatan dan Jawa Barat menjadi bukti arkeologis bahwa...",
+        options: [
+          "Kekaisaran Han pernah menaklukkan dan menjajah kerajaan di Nusantara.",
+          "Telah terjalin hubungan perdagangan maritim langsung maupun tidak langsung antara Nusantara dan Tiongkok sejak awal Masehi.",
+          "Masyarakat Nusantara masa itu belum mengenal peralatan makan dari tanah liat.",
+          "Keramik tersebut dibawa oleh penjajah Belanda pada abad ke-17."
+        ],
+        correct: 1,
+        explanation: "Pecahan keramik Dinasti Han di situs-situs purba Nusantara membuktikan bahwa kepulauan kita telah terhubung dalam jaringan niaga laut internasional Asia Timur sejak awal Masehi."
+      },
+
+      // Materi 3 (Soal 11-15)
+      {
+        category: "Materi 3: Teori Hindu-Buddha",
+        question: "11. Teori yang paling menekankan PERAN AKTIF cendekiawan dan pemuda Nusantara yang berlayar belajar ke India lalu kembali menyebarkan ajarannya di tanah air adalah...",
+        options: [
+          "Teori Ksatria (C.C. Berg)",
+          "Teori Brahmana (J.C. van Leur)",
+          "Teori Arus Balik (F.D.K. Bosch)",
+          "Teori Sudra (van Faber)"
+        ],
+        correct: 2,
+        explanation: "Teori Arus Balik yang dicetuskan F.D.K. Bosch menegaskan bahwa orang-orang Nusantara sendiri yang aktif menyeberangi samudra untuk belajar di pusat keagamaan Nalanda India, lalu pulang membangun peradaban di negerinya."
+      },
+      {
+        category: "Materi 3: Kerajaan Kutai",
+        question: "12. Bukti tertua berdirinya kerajaan bercorak Hindu di Nusantara ditandai dengan penemuan 7 buah tiang batu bertulis yang disebut Yupa di tepi Sungai Mahakam, yaitu peninggalan Kerajaan...",
+        options: [
+          "Kerajaan Tarumanegara",
+          "Kerajaan Kutai Martapura",
+          "Kedatuan Sriwijaya",
+          "Kerajaan Majapahit"
+        ],
+        correct: 1,
+        explanation: "Prasasti Yupa dari abad ke-4 Masehi di Muara Kaman, Kalimantan Timur, merupakan peninggalan Kerajaan Kutai di bawah pemerintahan Raja Mulawarman."
+      },
+      {
+        category: "Materi 3: Kerajaan Tarumanegara",
+        question: "13. Prasasti Tugu yang dikeluarkan Raja Purnawarman menceritakan penggalian Sungai Gomati dan Candrabhaga sepanjang ribuan busur. Hal ini membuktikan bahwa Kerajaan Tarumanegara...",
+        options: [
+          "Mengalami peperangan saudara yang menghancurkan seluruh sungai.",
+          "Telah memiliki kemampuan rekayasa tata kelola air untuk mencegah banjir dan memajukan pertanian sawah.",
+          "Hanya bergantung pada perdagangan maritim dan tidak memiliki lahan pertanian.",
+          "Ditinggalkan oleh rakyatnya karena bencana kekeringan berkepanjangan."
+        ],
+        correct: 1,
+        explanation: "Penggalian Sungai Gomati sepanjang 6.122 busur adalah bukti kemajuan teknik irigasi kuno Tarumanegara guna mengendalikan banjir Sungai Citarum dan mengairi persawahan rakyat."
+      },
+      {
+        category: "Materi 3: Dinasti & Toleransi",
+        question: "14. [Benar atau Salah] Keberadaan Candi Borobudur (bercorak Buddha) dan Candi Prambanan (bercorak Hindu) yang dibangun berdekatan di Jawa Tengah membuktikan bahwa masyarakat Mataram Kuno memiliki semangat toleransi dan kerukunan beragama yang tinggi.",
+        options: [
+          "BENAR — Dinasti Sanjaya (Hindu) dan Syailendra (Buddha) hidup berdampingan bahkan terikat pernikahan politik yang damai.",
+          "SALAH — Kedua candi tersebut dibangun sebagai lambang persaingan permusuhan sengit yang saling menghancurkan."
+        ],
+        correct: 0,
+        explanation: "Pernyataan BENAR. Mataram Kuno adalah bukti agung toleransi beragama di masa lalu, di mana keluarga raja dari Dinasti Sanjaya (Hindu) dan Syailendra (Buddha) bersatu dan saling mendukung pembangunan tempat ibadah."
+      },
+      {
+        category: "Materi 3: Sumpah Palapa & Majapahit",
+        question: "15. Mahapatih Gajah Mada mengucapkan Sumpah Palapa pada masa kejayaan Kerajaan Majapahit dengan tekad untuk...",
+        options: [
+          "Menghancurkan seluruh armada laut negara asing di Asia Tenggara.",
+          "Menyatukan wilayah kepulauan Nusantara di bawah naungan panji kebesaran Majapahit.",
+          "Menutup seluruh hubungan perdagangan rempah dengan Tiongkok dan India.",
+          "Menggantikan sistem kerajaan menjadi sistem republik modern."
+        ],
+        correct: 1,
+        explanation: "Sumpah Palapa yang diikrarkan Gajah Mada di hadapan Ratu Tribhuwana Tunggadewi adalah komitmen luhur untuk mempersatukan wilayah-wilayah Nusantara di bawah persatuan Majapahit."
+      }
+    ];
+
+    function renderCurrentQuizQuestion() {
+      const q = quizQuestions[state.quizCurrentIndex];
+      if (!q) return;
+
+      document.getElementById('quizProgressText').textContent = `Soal ${state.quizCurrentIndex + 1} dari ${quizQuestions.length}`;
+      document.getElementById('quizCategoryBadge').textContent = q.category;
+      document.getElementById('quizQuestionText').textContent = q.question;
+
+      const container = document.getElementById('quizOptionsContainer');
+      container.innerHTML = '';
+
+      const currentAnswer = state.quizAnswers[state.quizCurrentIndex];
+      const explBox = document.getElementById('quizExplanationBox');
+      const explText = document.getElementById('quizExplanationText');
+
+      if (currentAnswer !== null) {
+        explBox.style.display = 'block';
+        explText.textContent = q.explanation;
+        document.getElementById('btnNextQuestion').disabled = false;
+      } else {
+        explBox.style.display = 'none';
+        document.getElementById('btnNextQuestion').disabled = true;
+      }
+
+      q.options.forEach((opt, idx) => {
+        const div = document.createElement('div');
+        div.className = 'quiz-option';
+        div.innerHTML = `<span style="font-weight: bold; width: 24px;">${String.fromCharCode(65 + idx)}.</span> <span>${opt}</span>`;
+
+        if (currentAnswer !== null) {
+          if (idx === q.correct) div.classList.add('correct');
+          else if (idx === currentAnswer) div.classList.add('incorrect');
+        } else {
+          div.onclick = () => selectQuizAnswer(idx);
+        }
+
+        container.appendChild(div);
+      });
+
+      const prevBtn = document.getElementById('btnPrevQuestion');
+      const nextBtn = document.getElementById('btnNextQuestion');
+      prevBtn.style.visibility = state.quizCurrentIndex > 0 ? 'visible' : 'hidden';
+
+      if (state.quizCurrentIndex === quizQuestions.length - 1) {
+        nextBtn.textContent = 'Lihat Hasil Kuis 🏆';
+      } else {
+        nextBtn.textContent = 'Lanjut ➡️';
+      }
+    }
+
+    function selectQuizAnswer(idx) {
+      const q = quizQuestions[state.quizCurrentIndex];
+      state.quizAnswers[state.quizCurrentIndex] = idx;
+
+      if (idx === q.correct) {
+        soundCorrect();
+      } else {
+        soundWrong();
+      }
+
+      renderCurrentQuizQuestion();
+    }
+
+    function prevQuizQuestion() {
+      if (state.quizCurrentIndex > 0) {
+        soundClick();
+        state.quizCurrentIndex--;
+        renderCurrentQuizQuestion();
+      }
+    }
+
+    function nextQuizQuestion() {
+      soundClick();
+      if (state.quizCurrentIndex < quizQuestions.length - 1) {
+        state.quizCurrentIndex++;
+        renderCurrentQuizQuestion();
+      } else {
+        finishQuiz();
+      }
+    }
+
+    function finishQuiz() {
+      let correct = 0;
+      quizQuestions.forEach((q, idx) => {
+        if (state.quizAnswers[idx] === q.correct) correct++;
+      });
+
+      const score = Math.round((correct / quizQuestions.length) * 100);
+      state.quizScore = score;
+
+      document.getElementById('quizContainer').style.display = 'none';
+      const resScreen = document.getElementById('quizResultScreen');
+      resScreen.style.display = 'block';
+
+      document.getElementById('finalScoreVal').textContent = score;
+      document.getElementById('statQuizScore').textContent = score;
+      document.getElementById('certScore').textContent = `${score} / 100`;
+      document.getElementById('resCorrectCount').textContent = `${correct} Soal`;
+      document.getElementById('resWrongCount').textContent = `${quizQuestions.length - correct} Soal`;
+
+      let grade = 'Perlu Belajar Lagi';
+      let feedback = 'Jangan berkecil hati, pelajari kembali materi dan peta lalu coba ulangi kuis!';
+      if (score >= 85) {
+        grade = 'Sangat Memuaskan (A)';
+        feedback = 'Luar biasa! Kamu memiliki pemahaman sejarah dan geografi maritim Nusantara yang sangat mendalam!';
+        unlockBadge('scholar', 'Cendekiawan Utama');
+      } else if (score >= 70) {
+        grade = 'Baik (B)';
+        feedback = 'Bagus sekali! Pemahamanmu mengenai perdagangan masa lalu dan kerajaan Hindu-Buddha sudah mantap.';
+        if (score >= 80) unlockBadge('scholar', 'Cendekiawan Utama');
+      } else if (score >= 55) {
+        grade = 'Cukup (C)';
+        feedback = 'Cukup baik, tetapi ada beberapa konsep teori dan nama kerajaan yang perlu kamu baca ulang.';
+      }
+
+      document.getElementById('resGradeVal').textContent = grade;
+      document.getElementById('scoreFeedbackText').textContent = feedback;
+
+      const qStatus = document.getElementById('badge-quiz-status');
+      qStatus.textContent = `Nilai: ${score}`;
+      qStatus.className = 'status-badge completed';
+
+      soundBadge();
+      updateGlobalProgress();
+    }
+
+    function restartQuiz() {
+      soundClick();
+      state.quizAnswers = new Array(15).fill(null);
+      state.quizCurrentIndex = 0;
+      document.getElementById('quizResultScreen').style.display = 'none';
+      document.getElementById('quizContainer').style.display = 'block';
+      renderCurrentQuizQuestion();
+    }
+
+    /* =========================================================
+       8. GOOGLE SHEETS SINKRONISASI LOGIC
+       ========================================================= */
+    function getStudentPayload() {
+      let correct = 0;
+      quizQuestions.forEach((q, idx) => {
+        if (state.quizAnswers[idx] === q.correct) correct++;
+      });
+      const wrong = quizQuestions.length - correct;
+      const unlockedBadges = Object.entries(state.badges)
+        .filter(([_, v]) => v)
+        .map(([k, _]) => k)
+        .join(', ') || 'Belum ada';
+
+      return {
+        timestamp: new Date().toLocaleString('id-ID'),
+        nama: state.studentName || 'Anonim',
+        kelas: state.studentClass || 'VIII-A',
+        absen: state.studentAbsen || '-',
+        nilai: state.quizScore !== null ? state.quizScore : 0,
+        benar: correct,
+        salah: wrong,
+        predikat: document.getElementById('resGradeVal')?.textContent || 'Belum Diuji',
+        lencana: unlockedBadges,
+        refleksi1: document.getElementById('ref1')?.value || state.reflections.r1 || '-',
+        refleksi2: document.getElementById('ref2')?.value || state.reflections.r2 || '-',
+        refleksi3: document.getElementById('ref3')?.value || state.reflections.r3 || '-',
+        refleksi4: document.getElementById('ref4')?.value || state.reflections.r4 || '-'
+      };
+    }
+
+    async function sendScoreToGoogleSheets() {
+      soundClick();
+      const statusBox = document.getElementById('syncStatusBox');
+      const statusIcon = document.getElementById('syncStatusIcon');
+      const statusText = document.getElementById('syncStatusText');
+      const btn = document.getElementById('btnSendToSheets');
+
+      if (!state.sheetsScriptUrl) {
+        statusBox.className = 'sync-status-box loading';
+        statusIcon.textContent = '⚠️';
+        statusText.innerHTML = 'URL Google Apps Script belum diisi oleh Guru. <a href="javascript:void(0)" onclick="openModal(\'modal-sheets-setup\')" style="font-weight: bold; color: inherit; text-decoration: underline;">Klik di sini untuk mengisi URL Google Sheets Guru</a>.';
+        openModal('modal-sheets-setup');
+        return;
+      }
+
+      const payload = getStudentPayload();
+
+      // UI Loading state
+      btn.disabled = true;
+      btn.textContent = '⏳ Mengirim ke Spreadsheet...';
+      statusBox.className = 'sync-status-box loading';
+      statusIcon.textContent = '⏳';
+      statusText.textContent = `Menghubungkan ke Google Drive... Mengirim rekapan nilai untuk ${payload.nama} (${payload.kelas}).`;
+
+      try {
+        // Mode no-cors avoids CORS preflight error on Google Apps Script Web App
+        await fetch(state.sheetsScriptUrl, {
+          method: 'POST',
+          mode: 'no-cors',
+          cache: 'no-cache',
+          headers: {
+            'Content-Type': 'text/plain;charset=utf-8'
+          },
+          body: JSON.stringify(payload)
+        });
+
+        // Sukses!
+        soundCorrect();
+        btn.disabled = false;
+        btn.textContent = '✅ Nilai Terkirim!';
+        statusBox.className = 'sync-status-box success';
+        statusIcon.textContent = '✅';
+        statusText.innerHTML = `<strong>Berhasil Dikirim!</strong> Nilai ${payload.nama} (${payload.nilai} poin) telah tersimpan di Google Spreadsheet Guru pada ${payload.timestamp}.`;
+
+      } catch (err) {
+        console.error('Sheets Error:', err);
+        soundWrong();
+        btn.disabled = false;
+        btn.textContent = '🚀 Coba Kirim Ulang';
+        statusBox.className = 'sync-status-box error';
+        statusIcon.textContent = '❌';
+        statusText.innerHTML = `Gagal mengirim: ${err.message}. Pastikan URL Web App benar dan perangkat terhubung ke internet. Anda juga dapat menggunakan tombol <strong>Salin Format Baris</strong>.`;
+      }
+    }
+
+    function saveSheetsScriptUrl() {
+      soundClick();
+      const url = document.getElementById('inputSheetsScriptUrl').value.trim();
+      state.sheetsScriptUrl = url;
+      localStorage.setItem('mpi_sheets_url', url);
+      const resBox = document.getElementById('testUrlResultBox');
+      resBox.style.display = 'block';
+      resBox.style.background = '#dcfce7';
+      resBox.style.color = '#166534';
+      resBox.textContent = '✅ URL Web App Google Sheets berhasil disimpan!';
+      setTimeout(() => { resBox.style.display = 'none'; }, 3500);
+    }
+
+    function resetDefaultSheetsUrl() {
+      soundClick();
+      document.getElementById('inputSheetsScriptUrl').value = '';
+      state.sheetsScriptUrl = '';
+      localStorage.removeItem('mpi_sheets_url');
+      const resBox = document.getElementById('testUrlResultBox');
+      resBox.style.display = 'block';
+      resBox.style.background = '#fef3c7';
+      resBox.style.color = '#92400e';
+      resBox.textContent = 'URL dikosongkan. Silakan isi URL Apps Script spreadsheet milik Anda.';
+    }
+
+    async function testSheetsConnection() {
+      soundClick();
+      const url = document.getElementById('inputSheetsScriptUrl').value.trim();
+      const resBox = document.getElementById('testUrlResultBox');
+      resBox.style.display = 'block';
+
+      if (!url) {
+        resBox.style.background = '#fee2e2';
+        resBox.style.color = '#991b1b';
+        resBox.textContent = 'Harap isi URL Web App terlebih dahulu sebelum menguji.';
+        return;
+      }
+
+      resBox.style.background = '#e0f2fe';
+      resBox.style.color = '#0369a1';
+      resBox.textContent = 'Menguji koneksi ke Google Apps Script...';
+
+      try {
+        await fetch(url, { method: 'GET', mode: 'no-cors' });
+        soundCorrect();
+        resBox.style.background = '#dcfce7';
+        resBox.style.color = '#166534';
+        resBox.textContent = '✅ Berhasil terhubung ke endpoint Google Apps Script!';
+      } catch (e) {
+        resBox.style.background = '#fee2e2';
+        resBox.style.color = '#991b1b';
+        resBox.textContent = '⚠️ Tidak dapat memverifikasi GET, namun POST mungkin tetap bekerja normal.';
+      }
+    }
+
+    function copyScriptCode() {
+      soundClick();
+      const code = document.getElementById('scriptCodeBlock').innerText;
+      navigator.clipboard.writeText(code).then(() => {
+        alert('✅ Kode Google Apps Script berhasil disalin ke clipboard! Sekarang buka Google Sheets > Ekstensi > Apps Script dan tempelkan.');
+      }).catch(() => {
+        alert('Gagal menyalin otomatis. Silakan blok dan salin kode secara manual.');
+      });
+    }
+
+    function copyScoreRowToClipboard() {
+      soundClick();
+      const p = getStudentPayload();
+      const rowData = `${p.timestamp}\t${p.nama}\t${p.kelas}\t${p.absen}\t${p.nilai}\t${p.benar}\t${p.salah}\t${p.predikat}\t${p.lencana}`;
+      navigator.clipboard.writeText(rowData).then(() => {
+        soundCorrect();
+        alert('📋 Baris data nilai berhasil disalin! Anda tinggal membuka Google Sheets atau Excel lalu tekan Ctrl+V (Paste) pada baris yang diinginkan.');
+      }).catch(() => {
+        prompt('Salin teks data nilai berikut (Ctrl+C):', rowData);
+      });
+    }
+
+    function downloadScoreCSV() {
+      soundClick();
+      const p = getStudentPayload();
+      const headers = ["Waktu", "Nama Siswa", "Kelas", "No Absen", "Nilai", "Benar", "Salah", "Predikat", "Lencana"];
+      const row = [
+        `"${p.timestamp}"`,
+        `"${p.nama}"`,
+        `"${p.kelas}"`,
+        `"${p.absen}"`,
+        p.nilai,
+        p.benar,
+        p.salah,
+        `"${p.predikat}"`,
+        `"${p.lencana}"`
+      ];
+      const csvContent = "data:text/csv;charset=utf-8," + headers.join(",") + "\n" + row.join(",");
+      const encodedUri = encodeURI(csvContent);
+      const link = document.createElement("a");
+      link.setAttribute("href", encodedUri);
+      link.setAttribute("download", `Nilai_IPS_${p.nama.replace(/\s+/g, '_')}_${p.kelas}.csv`);
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+
+    /* =========================================================
+       9. REFLEKSI & EVALUASI AKHIR
+       ========================================================= */
+    function saveReflection() {
+      soundCorrect();
+      state.reflections.r1 = document.getElementById('ref1').value;
+      state.reflections.r2 = document.getElementById('ref2').value;
+      state.reflections.r3 = document.getElementById('ref3').value;
+      state.reflections.r4 = document.getElementById('ref4').value;
+
+      const alertEl = document.getElementById('saveRefAlert');
+      alertEl.style.display = 'inline';
+      setTimeout(() => alertEl.style.display = 'none', 3000);
+
+      const b = document.getElementById('badge-eval-status');
+      b.textContent = 'Refleksi Tersimpan';
+      b.className = 'status-badge completed';
+      updateGlobalProgress();
+    }
+
+    function setCertificateDate() {
+      const options = { year: 'numeric', month: 'long', day: 'numeric' };
+      const today = new Date().toLocaleDateString('id-ID', options);
+      document.getElementById('certDate').textContent = today;
+    }
+
+    /* =========================================================
+       10. INITIALIZATION
+       ========================================================= */
+    window.addEventListener('DOMContentLoaded', () => {
+      setCertificateDate();
+      renderMerchantGame();
+      renderCurrentQuizQuestion();
+      updateGlobalProgress();
+    });
+  </script>
+</body>
+</html>
